@@ -21,6 +21,7 @@ export default function HomeContent() {
   const sent = enq.sent
   return (<>
 
+<div className="hero-shell">
 <header className="hero bnon"><HeroSlider />
 
 <div className="wrap grid">
@@ -36,6 +37,7 @@ export default function HomeContent() {
 <div className="chip glass c2"><strong>4.9 ★</strong>Traveller rating</div>
 </div></div>
 </header>
+</div>
 
 <div className="search"><div className="wrap reveal"><div className="bar glass">
 <label><small>Destination</small><select><option>Anywhere</option><option>Bali</option><option>Dubai</option><option>Japan</option><option>Vietnam</option><option>Egypt</option></select></label>
