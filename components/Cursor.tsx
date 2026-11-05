@@ -1,19 +1,12 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 export default function Cursor() {
-  const d = useRef<HTMLDivElement>(null)
-  const r = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (!matchMedia('(pointer:fine)').matches) return
     const root = document.documentElement
-    root.classList.add('cur')
-    const D = d.current!, R = r.current!
-    let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y, raf = 0
     const q = (e: Event, s: string) => (e.target as Element | null)?.closest?.(s) as HTMLElement | null
     const move = (e: MouseEvent) => {
-      x = e.clientX; y = e.clientY
-      D.style.opacity = R.style.opacity = '1'
-      D.style.transform = `translate(${x}px,${y}px)`
+      const x = e.clientX, y = e.clientY
       root.style.setProperty('--px', (x / innerWidth - 0.5).toFixed(3))
       root.style.setProperty('--py', (y / innerHeight - 0.5).toFixed(3))
       const c = q(e, '.glass')
@@ -29,14 +22,8 @@ export default function Cursor() {
       const m = q(e, '.btn')
       if (m && !m.contains(e.relatedTarget as Node)) m.style.transform = ''
     }
-    const over = (e: MouseEvent) => {
-      R.classList.toggle('hov', !!q(e, 'a,button,input,select,textarea,.pimg'))
-      const l = q(e, '.pimg') ? 'Photo' : q(e, '.post,.feat') ? (document.body.dataset.cl || 'Read') : ''
-      R.dataset.t = l; R.classList.toggle('lab', !!l)
-    }
-    const loop = () => { rx += (x - rx) * 0.16; ry += (y - ry) * 0.16; R.style.transform = `translate(${rx}px,${ry}px)`; raf = requestAnimationFrame(loop) }
-    addEventListener('mousemove', move, { passive: true }); document.addEventListener('mouseout', out); document.addEventListener('mouseover', over); loop()
-    return () => { removeEventListener('mousemove', move); document.removeEventListener('mouseout', out); document.removeEventListener('mouseover', over); cancelAnimationFrame(raf); root.classList.remove('cur') }
+    addEventListener('mousemove', move, { passive: true }); document.addEventListener('mouseout', out)
+    return () => { removeEventListener('mousemove', move); document.removeEventListener('mouseout', out) }
   }, [])
-  return <><div id="cd" ref={d} /><div id="cr" ref={r} /></>
+  return null
 }
