@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useEnquiry } from '@/lib/useEnquiry'
 import Pic from './Pic'
-const FAQ = [['How far in advance should I book?', 'For peak seasons we recommend 3–4 months ahead; last-minute trips are possible and we’ll always tell you honestly what’s available.'], ['Can you customise a package?', 'Yes. Every package is a starting point — we adjust hotels, pace, activities and budget to suit you.'], ['Do you handle visas and insurance?', 'We guide you through visas and arrange comprehensive travel insurance for every itinerary.'], ['What support do I get during the trip?', 'A dedicated manager and our 24/7 helpline for the entire duration of your journey.']]
+const FAQ = [['What travel services do you offer?', 'We offer customised domestic and international tour packages, hotel reservations, flight bookings, visa assistance, and travel insurance.'], ['Do you provide customised tour packages?', 'Yes, we design personalised itineraries based on your destination preferences, travel dates, budget, number of travellers and special requirements.'], ['Do you organise group tours and private tours?', 'Yes, we can assist with group departures, private family holidays, honeymoon packages, corporate travel and tailor-made holidays, subject to availability.'], ['Can your company assist with visa applications?', 'Yes. We provide visa assistance, including guidance on documentation, application procedures and appointment requirements, wherever applicable. Visa approval remains at the discretion of the relevant embassy or immigration authority.']]
 export default function ContactContent() {
   useSiteEffects()
   const enq = useEnquiry('contact')
