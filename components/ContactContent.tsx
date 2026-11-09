@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useEnquiry } from '@/lib/useEnquiry'
+import Pic from './Pic'
 const FAQ = [['How far in advance should I book?', 'For peak seasons we recommend 3–4 months ahead; last-minute trips are possible and we’ll always tell you honestly what’s available.'], ['Can you customise a package?', 'Yes. Every package is a starting point — we adjust hotels, pace, activities and budget to suit you.'], ['Do you handle visas and insurance?', 'We guide you through visas and arrange comprehensive travel insurance for every itinerary.'], ['What support do I get during the trip?', 'A dedicated manager and our 24/7 helpline for the entire duration of your journey.']]
 export default function ContactContent() {
   useSiteEffects()
@@ -26,7 +27,7 @@ export default function ContactContent() {
 <div className="c glass"><i>✆</i><div><small>Call us</small><b>+91-9830032368</b></div></div>
 <div className="c glass"><i>✉</i><div><small>Email</small><b>bentsholidays@gmail.com</b></div></div>
 <div className="c glass"><i>◷</i><div><small>Hours</small><b>Mon–Fri · 10am – 6.30pm & Sat · 10am – 2.30pm IST</b></div></div>
-<div className="pimg" style={{'height':'170px'} as React.CSSProperties} data-l="Office photo · 800×400"></div>
+<div className="pimg" style={{'height':'170px'} as React.CSSProperties} data-l="Office photo · 800×400"><Pic name="contact/office" alt="Bents Holidays office" /></div>
 <div className="mp"><svg viewBox="0 0 400 230"><g fill="none" stroke="var(--teal)" strokeOpacity=".3"><path d="M0 60 Q120 90 200 70 T400 100"/><path d="M0 150 Q100 120 220 150 T400 140"/><path d="M130 0 Q150 110 120 230"/><path d="M270 0 Q250 100 290 230"/></g><circle className="dot" cx="210" cy="112" r="6"/><circle className="ring" cx="210" cy="112" r="6"/><text x="226" y="108" fontSize="12" fill="var(--fg)" fontFamily="Manrope">Bents HQ</text><text x="226" y="124" fontSize="10" fill="var(--mute)" fontFamily="Manrope">22 Lake Place, Kolkata, India</text></svg></div>
 </div></div></section>
 <section className="alt"><div className="wrap"><div className="head reveal" style={{'justifyContent':'center','textAlign':'center'} as React.CSSProperties}><div><span className="eyebrow">FAQ</span><h2>Good to <em>know</em></h2></div></div><div className="faq">{FAQ.map((f,i)=><div key={f[0]} className={'q glass reveal'+(open===i?' open':'')} style={{'--d':`${i*.06}s`} as React.CSSProperties}><button onClick={()=>setOpen(open===i?null:i)}>{f[0]}<span>+</span></button><div className="qa"><div><p>{f[1]}</p></div></div></div>)}</div></div></section>
