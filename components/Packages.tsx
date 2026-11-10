@@ -15,7 +15,7 @@ export default function Packages() {
         {F.filter(d => f === 'all' || d[1] === f).map(d => { const t = TOURS[d[0]]; const n = t.days.length; return (
           <article key={d[0]} className="card glass reveal" data-vis="">
             <div className="img" data-n={d[2]} style={{ '--a': t.a, '--b': t.b } as React.CSSProperties}><Pic name={`tours/${t.slug}`} alt={t.name} /><span className="tag">{n - 1}N / {n}D</span></div>
-            <div className="body"><h3>{t.name}</h3><p>{t.desc}</p><div className="foot"><em>From ₹{t.price.toLocaleString('en-IN')}</em><Link href={`/leisure/${t.slug}`}>Explore →</Link></div></div>
+            <div className="body"><h3>{t.name}</h3><p>{t.desc}</p><div className="foot"><Link href={`/leisure/${t.slug}`}>Explore →</Link></div></div>
           </article>) })}
       </div></div></section>
   )

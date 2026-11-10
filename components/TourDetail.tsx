@@ -8,8 +8,6 @@ import { TOURS, type TourData } from '@/data/tours'
 import Lightbox from './Lightbox'
 const LC: Record<string, string> = { Bestseller: '', New: 'teal', 'Few seats left': 'red', 'Honeymoon pick': 'pink', 'Group departure': 'blue', 'Family favourite': 'green' }
 const ML: Record<string, string> = { B: 'Breakfast', L: 'Lunch', D: 'Dinner' }
-const IDS = ['overview', 'plan', 'stay', 'inc', 'policy', 'enquire']
-const TABS = ['Overview', 'Itinerary', 'Stay', 'Inclusions', 'Good to know', 'Enquire']
 const Y = [90, 70, 70, 60, 80, 72, 66, 84]
 const inr = (v: number) => '₹' + Math.round(v).toLocaleString('en-IN')
 function Route({ nodes }: { nodes: string[][] }) {
@@ -31,15 +29,12 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
   const [open, setOpen] = useState<Set<number>>(new Set([1]))
   const [pol, setPol] = useState<Set<number>>(new Set())
   const [n, setN] = useState(2)
-  const [tab, setTab] = useState(0)
   const [lb, setLb] = useState<number | null>(null)
   const flip = (s: Set<number>, k: number) => { const x = new Set(s); x.has(k) ? x.delete(k) : x.add(k); return x }
   const allOpen = open.size === t.days.length
   useEffect(() => {
     document.body.dataset.cl = 'View'
-    const f = () => { let k = 0; IDS.forEach((id, i) => { const e = document.getElementById(id); if (e && e.getBoundingClientRect().top < 180) k = i }); setTab(k) }
-    f(); addEventListener('scroll', f, { passive: true })
-    return () => { delete document.body.dataset.cl; removeEventListener('scroll', f) }
+    return () => { delete document.body.dataset.cl }
   }, [])
   const d = (s: string) => ({ '--d': s }) as React.CSSProperties
   const total = t.price * n * (1 + t.gst / 100)
@@ -54,7 +49,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <div className="hg reveal" style={d('.3s')}>{t.heroLabels.map((l, i) => <div key={l + i} className="pimg" data-l={l} role="button" tabIndex={0} onClick={() => setLb(i)} onKeyDown={e => e.key === 'Enter' && setLb(i)} />)}</div>
         <div className="facts glass reveal">{t.facts.map(([l, v]) => <div key={l}><small>{l}</small><b>{v}</b></div>)}</div>
       </div></header>
-      <nav className="tn"><div className="wrap">{IDS.map((id, i) => <a key={id} href={'#' + id} className={tab === i ? 'on' : ''}>{TABS[i]}</a>)}</div></nav>
       <div className="wrap lay"><div>
         <div className="blk" id="overview" style={{ paddingTop: 44 }}><span className="eyebrow">Overview</span><h2>The road to the <em>roof</em> of the east</h2>
           <p className="lead">{t.overview}</p>
