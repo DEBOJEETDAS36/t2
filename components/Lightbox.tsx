@@ -1,7 +1,7 @@
 'use client'
 import type React from 'react'
 import { useEffect } from 'react'
-export interface LbItem { label: string; title: string; sub?: string; a?: string; b?: string }
+export interface LbItem { label: string; title: string; sub?: string; a?: string; b?: string; src?: string }
 export default function Lightbox({ items, index, onIndex, onClose }: { items: LbItem[]; index: number | null; onIndex: (i: number) => void; onClose: () => void }) {
   const open = index !== null && items.length > 0
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function Lightbox({ items, index, onIndex, onClose }: { items: Lb
         <button className="lbb lbv" aria-label="Previous" onClick={go(-1)}>←</button>
         <button className="lbb lbt" aria-label="Next" onClick={go(1)}>→</button>
         <div className="lbi" onClick={e => e.stopPropagation()}>
-          <div className="lbp" key={index} style={{ '--a': it.a, '--b': it.b } as React.CSSProperties}><div className="pimg" data-l={it.label} /></div>
+          <div className="lbp" key={index} style={{ '--a': it.a, '--b': it.b } as React.CSSProperties}>{it.src ? <img className="lbimg" src={it.src} alt={it.title} /> : <div className="pimg" data-l={it.label} />}</div>
           <div className="lbc"><div><small>{it.sub}</small><h3>{it.title}</h3></div><span>{index! + 1} / {items.length}</span></div>
         </div>
       </>}

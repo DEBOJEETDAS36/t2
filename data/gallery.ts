@@ -1,6 +1,7 @@
-export interface GalleryItem { id: number; title: string; cat: string; place: string; h: number; a: string; b: string }
+export interface GalleryItem { id: number; title: string; cat: string; place: string; h: number; a: string; b: string; src?: string }
 export const GCATS = ["All", "Domestic", "International", "Stays", "Experiences", "Travellers", "MICE"]
-// Add or edit entries here; swap the placeholder frames for real images later.
+// Fallback frames shown only when public/images/gallery is empty.
+// Drop real photos into public/images/gallery instead of editing this file.
 export const GALLERY: GalleryItem[] = [
  {
   "id": 1,

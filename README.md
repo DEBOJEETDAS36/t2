@@ -22,4 +22,4 @@ npm run build && npm start
 3. **Connect → Drivers**: copy the connection string, put your password in it, and set it as `MONGODB_URI` in `.env.local`
    (and in Vercel → Project → Settings → Environment Variables, together with `ADMIN_PASSWORD`).
 4. Check it with `npm run db:check`, then submit a form on the site and open `/admin`.
-- Content lives in `data/tours.ts`, `data/blogs.ts` and `data/gallery.ts`.
+- Content lives in `data/tours.ts` and `data/blogs.ts`. Gallery photos are read automatically from `public/images/gallery/` (see `IMAGES.md`); `data/gallery.ts` only holds the fallback frames.
