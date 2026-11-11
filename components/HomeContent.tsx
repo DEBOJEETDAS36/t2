@@ -49,7 +49,7 @@ export default function HomeContent() {
 <div><b data-c="15">0</b><small>YEARS OF EXPERIENCE</small></div>
 <div><b data-c="25000">0</b><small>HAPPY TRAVELLERS</small></div>
 <div><b data-c="120">0</b><small>DESTINATIONS</small></div>
-<div><b data-c="98">0</b><small>% REPEAT CLIENTS</small></div>
+<div><b data-c="98" data-suffix="%">0</b><small>REPEAT CLIENTS</small></div>
 </div></div></div>
 
 <Packages />
