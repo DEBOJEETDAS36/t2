@@ -728,9 +728,8 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed}
 .abt-pillar p{font-size:.86rem;color:var(--mute);font-weight:300;position:relative}
 .abt-logos{position:relative;overflow:hidden;margin-top:8px;padding:36px 0;border-block:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .abt-logo-track{display:flex;align-items:center;gap:56px;width:max-content;animation:abt-marquee 46s linear infinite}
-.abt-logo-track img{height:44px;width:auto;max-width:156px;object-fit:contain;filter:grayscale(1) opacity(.62);transition:filter .5s var(--ease),transform .5s var(--ease)}
-[data-theme=dark] .abt-logo-track img{filter:brightness(0) invert(1) opacity(.55)}
-.abt-logo-track img:hover{filter:none;transform:scale(1.08)}
+.abt-logo-track img{height:44px;width:auto;max-width:156px;object-fit:contain;transition:transform .5s var(--ease)}
+.abt-logo-track img:hover{transform:scale(1.08)}
 .abt-logos:hover .abt-logo-track{animation-play-state:paused}
 @keyframes abt-marquee{to{transform:translateX(-50%)}}
 .abt-clients{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
