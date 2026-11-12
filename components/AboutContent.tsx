@@ -26,12 +26,9 @@ export default function AboutContent() {
     // Duplicate the row so the marquee can loop seamlessly.
     return items.length ? [...items, ...items] : []
   }, [list])
-  const [yr, setYr] = useState('All')
   const [q, setQ] = useState('')
-  const total = A.departures.reduce((s, r) => s + r[2], 0)
   const rows = A.departures.filter(r =>
-    (yr === 'All' || r[3] === yr) &&
-    (!q.trim() || r.join(' ').toLowerCase().includes(q.trim().toLowerCase()))
+    !q.trim() || `${r[0]} ${r[1]}`.toLowerCase().includes(q.trim().toLowerCase())
   )
   const d = (s: string) => ({ '--d': s }) as React.CSSProperties
   return (
@@ -66,8 +63,7 @@ export default function AboutContent() {
         <div className="wrap">
           <div className="stats abt-stats reveal">
             <div><b data-c="31">0</b><small>YEARS OF LEADERSHIP EXPERIENCE</small></div>
-            <div><b data-c={A.departures.length} data-plus="no">0</b><small>GRAND DEPARTURES · 2024–26</small></div>
-            <div><b data-c={total} data-plus="no">0</b><small>TRAVELLERS ON THOSE GROUPS</small></div>
+            <div><b data-c={A.departures.length} data-plus="no">0</b><small>GRAND DEPARTURES</small></div>
             <div><b data-c="12" data-plus="no">0</b><small>CITIES WITH OUR OFFICES</small></div>
           </div>
         </div>
@@ -140,12 +136,9 @@ export default function AboutContent() {
       <section>
         <div className="wrap">
           <div className="head reveal"><div><span className="eyebrow">Our grand departures</span><h2>Corporate groups, <em>on the move</em></h2></div>
-            <p className="sub">{A.departures.length} departures and {total.toLocaleString('en-IN')} travellers across 2024–26.</p></div>
+            <p className="sub">{A.departures.length} corporate departures across India and around the world.</p></div>
 
           <div className="abt-toolbar glass reveal">
-            <div className="chips abt-chips">
-              {A.years.map(y => <button key={y} type="button" aria-pressed={y === yr} className={y === yr ? 'on' : ''} onClick={() => setYr(y)}>{y}</button>)}
-            </div>
             <label className="abt-search">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4.5-4.5" /></svg>
               <input aria-label="Search departures by corporate or destination" placeholder="Search corporate or destination…" value={q} onChange={e => setQ(e.target.value)} />
@@ -156,13 +149,11 @@ export default function AboutContent() {
           <p className="abt-count" aria-live="polite">Showing <b>{rows.length}</b> of {A.departures.length} departures</p>
 
           <div className="abt-table glass reveal">
-            <div className="abt-thead" aria-hidden="true"><span>Corporate</span><span>Destination</span><span>Travellers</span><span>Year</span></div>
+            <div className="abt-thead" aria-hidden="true"><span>Corporate</span><span>Destination</span></div>
             {rows.map((r, i) => (
               <div className="abt-row" key={`${r[0]}-${r[1]}-${i}`}>
                 <b className="abt-co">{r[0]}</b>
                 <span className="abt-dest">{r[1]}</span>
-                <span className="abt-pax">{r[2].toLocaleString('en-IN')} pax</span>
-                <span className="abt-year">{r[3]}</span>
               </div>
             ))}
             {!rows.length && <p className="abt-empty">No departures match your search.</p>}
