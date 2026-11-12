@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { TOURS } from '@/data/tours'
 import Pic from './Pic'
 const TABS = [['all', 'All'], ['asia', 'Asia'], ['mid', 'Middle East'], ['oce', 'Pacific']]
-const F = [['bali-nusa-penida', 'asia', 'Bali'], ['dubai-abu-dhabi', 'mid', 'Dubai'], ['blissful-japan', 'asia', 'Japan'], ['vietnam-unfolded', 'asia', 'Vietnam'], ['jewel-of-the-nile', 'mid', 'Egypt'], ['scenic-new-zealand', 'oce', 'N. Zealand']]
+const F = [['bali-nusa-penida', 'asia', 'Bali'], ['dubai-abu-dhabi', 'mid', 'Dubai'], ['blissful-japan', 'asia', 'Japan'], ['vietnam-unfolded', 'asia', 'Vietnam'], ['jewel-of-the-nile', 'asia', 'Sri Lanka'], ['scenic-new-zealand', 'oce', 'N. Zealand']]
 export default function Packages() {
   const [f, setF] = useState('all')
   return (
