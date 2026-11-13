@@ -29,7 +29,7 @@ export default function HomeContent() {
 <span className="pill glass reveal"><b></b>Now booking Winter &amp; 2027 departures</span>
 <h1 className="reveal" style={{'--d':'.1s'} as React.CSSProperties}>Begin your <em>journey</em> beyond the ordinary.</h1>
 <p className="reveal" style={{'--d':'.2s'} as React.CSSProperties}>Hand-crafted escapes to the world’s most breathtaking places — planned end to end, so you only have to arrive.</p>
-<div className="cta reveal" style={{'--d':'.3s'} as React.CSSProperties}><a href="#packages" className="btn pri">Explore packages →</a><a href="#about" className="btn gh">Why Wanderline</a></div>
+<div className="cta reveal" style={{'--d':'.3s'} as React.CSSProperties}><a href="#packages" className="btn pri">Explore packages →</a><a href="#about" className="btn gh">Why Bents</a></div>
 </div>
 <div className="visual reveal" style={{'--d':'.2s'} as React.CSSProperties}>
 
