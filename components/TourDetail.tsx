@@ -9,7 +9,6 @@ import Lightbox from './Lightbox'
 const LC: Record<string, string> = { Bestseller: '', New: 'teal', 'Few seats left': 'red', 'Honeymoon pick': 'pink', 'Group departure': 'blue', 'Family favourite': 'green' }
 const ML: Record<string, string> = { B: 'Breakfast', L: 'Lunch', D: 'Dinner' }
 const Y = [90, 70, 70, 60, 80, 72, 66, 84]
-const inr = (v: number) => '₹' + Math.round(v).toLocaleString('en-IN')
 function Route({ nodes }: { nodes: string[][] }) {
   const n = nodes.length, xs = nodes.map((_, i) => 70 + i * (740 / Math.max(n - 1, 1))), ys = nodes.map((_, i) => Y[i % Y.length])
   let d = `M${xs[0]} ${ys[0]}`
@@ -28,7 +27,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
   const sent = enq.sent
   const [open, setOpen] = useState<Set<number>>(new Set([1]))
   const [pol, setPol] = useState<Set<number>>(new Set())
-  const [n, setN] = useState(2)
   const [lb, setLb] = useState<number | null>(null)
   const flip = (s: Set<number>, k: number) => { const x = new Set(s); x.has(k) ? x.delete(k) : x.add(k); return x }
   const allOpen = open.size === t.days.length
@@ -37,7 +35,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
     return () => { delete document.body.dataset.cl }
   }, [])
   const d = (s: string) => ({ '--d': s }) as React.CSSProperties
-  const total = t.price * n * (1 + t.gst / 100)
   return (
     <div className="pg tourpg">
       <header className="ph"><div className="orb o1" /><div className="orb o2" /><div className="wrap">
@@ -74,15 +71,13 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
           <div className="faq" style={{ maxWidth: 'none' }}>{t.policies.map((f, i) => (
             <div key={f[0]} className={'q glass reveal' + (pol.has(i) ? ' open' : '')} style={d(`${i * 0.06}s`)}><button onClick={() => setPol(flip(pol, i))}>{f[0]}<span>+</span></button><div className="qa"><div><p>{f[1]}</p></div></div></div>))}</div></div>
       </div>
-      <aside className="bk glass reveal"><div><small>{t.fixed ? `Fixed departure · ${t.departure}` : t.departure}</small><div className="pr">{inr(t.price)} <span>per person</span></div><small style={{ textTransform: 'none', letterSpacing: 0, fontSize: '.8rem' }}>+ {t.gst}% GST · {t.priceNote}</small></div>
-        <div className="stp"><span>Travellers</span><div style={{ display: 'flex', gap: 14, alignItems: 'center' }}><button aria-label="Fewer" onClick={() => setN(Math.max(1, n - 1))}>−</button><b>{n}</b><button aria-label="More" onClick={() => setN(Math.min(12, n + 1))}>+</button></div></div>
-        <div className="tot"><div><small>Estimated total</small></div><b>{inr(total)}</b></div>
+      <aside className="bk glass reveal"><div><small>{t.fixed ? `Fixed departure · ${t.departure}` : t.departure}</small></div>
         <ul>{t.perks.map(p => <li key={p}>{p}</li>)}</ul>
         <a href="#enquire" className="btn pri">Enquire about this tour →</a></aside></div>
       <section className="alt"><div className="wrap"><div className="head reveal"><div><span className="eyebrow">You may also like</span><h2>More <em>journeys</em></h2></div><Link href="/leisure" className="btn gh">All tours</Link></div>
         <div className="g3">{Object.values(TOURS).filter(x => x.slug !== t.slug && x.region === t.region).slice(0, 3).map((x, i) => (
           <Link key={x.slug} href={`/leisure/${x.slug}`} className="post glass reveal" style={d(`${i * 0.08}s`)}><div className="img" style={{ '--a': x.a, '--b': x.b } as React.CSSProperties}><div className="pimg" data-l="Tour image · 800×500" />{x.label && <span className={'lbl ' + LC[x.label]}>{x.label}</span>}<span className="rg">{x.region === 'dom' ? 'Domestic' : 'International'}</span></div>
-            <div className="pt"><div className="mt"><b>{x.place}</b><span>{x.days.length} days / {x.days.length - 1} nights</span></div><h3>{x.name}</h3><div className="tf"><div><small>From, per person</small><strong>{inr(x.price)}</strong></div><span className="rt">★ {x.rating}</span></div><span className="rd">View itinerary →</span></div></Link>))}</div></div></section>
+            <div className="pt"><div className="mt"><b>{x.place}</b><span>{x.days.length} days / {x.days.length - 1} nights</span></div><h3>{x.name}</h3><div className="tf"><span className="rt">★ {x.rating}</span></div><span className="rd">View itinerary →</span></div></Link>))}</div></div></section>
       <section id="enquire" style={{ scrollMarginTop: 70 }}><div className="wrap"><form className="cf glass reveal" onSubmit={enq.onSubmit}>
         <div className="full"><span className="eyebrow">Reserve your seat</span><h2>Enquire about <em>{t.name}</em></h2></div>
         <input name="name" className="in" placeholder="Full name" required /><input name="email" className="in" type="email" placeholder="Email address" required />
@@ -90,7 +85,7 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <textarea name="message" className="in full" placeholder="Anything we should know — dates, room preferences, special requests" maxLength={1000} />
         <button className="btn pri full" style={{ justifySelf: 'start' }}>{sent ? 'Thank you — we’ll be in touch ✓' : 'Send enquiry'}</button>{enq.err && <p className="ferr full">{enq.err}</p>}</form></div></section>
       <Lightbox items={t.heroLabels.map((l, i) => ({ label: l, title: t.name, sub: `Photo ${i + 1} of ${t.heroLabels.length}`, a: t.a, b: t.b }))} index={lb} onIndex={setLb} onClose={() => setLb(null)} />
-      <div className="mb"><div><small>From, per person</small><b>{inr(t.price)}</b></div><a href="#enquire" className="btn pri" style={{ padding: '12px 22px' }}>Enquire</a></div>
+      <div className="mb"><a href="#enquire" className="btn pri" style={{ padding: '12px 22px', flex: 1, justifyContent: 'center' }}>Enquire</a></div>
     </div>
   )
 }

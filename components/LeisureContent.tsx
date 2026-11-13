@@ -24,7 +24,7 @@ export default function LeisureContent() {
     return () => { delete document.body.dataset.cl; removeEventListener('hashchange', f) }
   }, [])
   const ok = (t: Tour, skip?: string) => (skip === 'r' || r === 'all' || t[1] === r) && (skip === 'c' || c === 'All' || t[3].includes(c)) && (!q || (t[0] + ' ' + t[2] + ' ' + t[3].join(' ') + ' ' + t[5] + ' ' + t[10]).toLowerCase().includes(q.toLowerCase()))
-  const S: Record<string, (a: Tour, b: Tour) => number> = { pl: (a, b) => a[6] - b[6], ph: (a, b) => b[6] - a[6], ds: (a, b) => a[4] - b[4], dl: (a, b) => b[4] - a[4] }
+  const S: Record<string, (a: Tour, b: Tour) => number> = { ds: (a, b) => a[4] - b[4], dl: (a, b) => b[4] - a[4] }
   let L = T.filter(t => ok(t))
   if (S[s]) L = [...L].sort(S[s])
   const seen = prev.current
@@ -46,7 +46,7 @@ export default function LeisureContent() {
               {q && <button type="button" aria-label="Clear" onClick={() => setQ('')}>✕</button>}
             </label>
             <select className="srt" value={s} onChange={e => setS(e.target.value)}>
-              <option value="pop">Sort: Popular</option><option value="pl">Price: low to high</option><option value="ph">Price: high to low</option><option value="ds">Duration: shortest</option><option value="dl">Duration: longest</option>
+              <option value="pop">Sort: Popular</option><option value="ds">Duration: shortest</option><option value="dl">Duration: longest</option>
             </select>
           </div>
           <div className="r2">
@@ -66,7 +66,7 @@ export default function LeisureContent() {
               <div className="pt">
                 <div className="mt"><b>{t[2]}</b><span>{t[4]} days / {t[4] - 1} nights</span></div>
                 <h3>{t[0]}</h3><p>{t[10]}</p>
-                <div className="tf"><div><small>From, per person</small><strong>₹{t[6].toLocaleString('en-IN')}</strong></div><span className="rt">★ {t[7]}</span></div>
+                <div className="tf"><span className="rt">★ {t[7]}</span></div>
                 <span className="rd">View itinerary →</span>
               </div>
             </Link>
