@@ -400,6 +400,16 @@ html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bot
 .pg .cf>*{position:relative}
 .pg .full{grid-column:1/-1}
 .pg .cf h2{font-size:2rem;margin-bottom:8px}
+/* glass select inside the contact form — matches the home page dropdown */
+.pg .cf .gs{position:relative;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.pg .cf .gs-label{display:block;margin-bottom:2px;font-size:.62rem;line-height:1.4;letter-spacing:.2em}
+.pg .cf .gs-btn{width:100%;height:auto;margin:0;padding:4px 0 10px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;font:500 1rem var(--sans);transition:border-color .4s,box-shadow .4s}
+.pg .cf .gs-btn:hover{border-color:var(--gold)}
+.pg .cf .gs-btn:focus-visible{outline:0;border-color:var(--gold);box-shadow:0 8px 14px -12px var(--gold)}
+.pg .cf .gs-btn[data-empty] .gs-val{color:var(--mute)}
+.pg .cf .gs.open:before{display:none}
+.pg .cf .gs-menu-head{display:none}
+.pg .cf .gs-menu{left:0;right:0;top:calc(100% + 8px)}
 .pg select.in option{color:#111}
 .pg textarea.in{resize:none;height:100px}
 .pg .ci{display:grid;gap:16px}

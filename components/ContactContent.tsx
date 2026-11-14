@@ -1,16 +1,20 @@
 'use client'
 import type React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useEnquiry } from '@/lib/useEnquiry'
 import Pic from './Pic'
+import GlassSelect from './GlassSelect'
+const INTERESTS = ['Leisure holiday', 'MICE / corporate', 'Something else']
 const FAQ = [['What travel services do you offer?', 'We offer customised domestic and international tour packages, hotel reservations, flight bookings, visa assistance, and travel insurance.'], ['Do you provide customised tour packages?', 'Yes, we design personalised itineraries based on your destination preferences, travel dates, budget, number of travellers and special requirements.'], ['Do you organise group tours and private tours?', 'Yes, we can assist with group departures, private family holidays, honeymoon packages, corporate travel and tailor-made holidays, subject to availability.'], ['Can your company assist with visa applications?', 'Yes. We provide visa assistance, including guidance on documentation, application procedures and appointment requirements, wherever applicable. Visa approval remains at the discretion of the relevant embassy or immigration authority.']]
 export default function ContactContent() {
   useSiteEffects()
   const enq = useEnquiry('contact')
   const sent = enq.sent
+  const [interest, setInterest] = useState('')
   const [open, setOpen] = useState<number | null>(null)
+  useEffect(() => { if (sent) setInterest('') }, [sent])
   return (<div className="pg">
 <header className="ph"><div className="orb o1"></div><div className="orb o2"></div><div className="wrap">
 <span className="crumb glass reveal">Home <b>/</b> Contact</span>
@@ -19,7 +23,7 @@ export default function ContactContent() {
 <section style={{'paddingTop':'20px'} as React.CSSProperties}><div className="wrap cg">
 <form className="cf glass reveal" onSubmit={enq.onSubmit}><div className="full"><h2>Send an enquiry</h2></div>
 <input name="name" className="in" placeholder="Full name" required /><input name="email" className="in" type="email" placeholder="Email address" required />
-<input name="phone" className="in" placeholder="Phone number" /><select name="interest" className="in"><option>I’m interested in</option><option>Leisure holiday</option><option>MICE / corporate</option><option>Something else</option></select>
+<input name="phone" className="in" placeholder="Phone number" /><GlassSelect name="interest" label="I’m interested in" placeholder="Select an option" value={interest} onChange={setInterest} options={INTERESTS} />
 <input name="destination" className="in" placeholder="Destination" /><input name="dates" className="in" placeholder="Travel dates" />
 <textarea name="message" className="in full" placeholder="Tell us about your dream trip" maxLength={1000}></textarea>
 <button className="btn pri full" style={{'justifySelf':'start'} as React.CSSProperties}>{sent?'Thank you — we’ll be in touch ✓':'Send enquiry'}</button>{enq.err && <p className="ferr full">{enq.err}</p>}</form>

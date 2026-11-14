@@ -7,9 +7,13 @@ type Props = {
   value: string
   options: readonly string[]
   onChange: (v: string) => void
+  /** Renders a hidden input so the value is included in native form submissions. */
+  name?: string
+  /** Text shown in the trigger while no option is selected. */
+  placeholder?: string
 }
 
-export default function GlassSelect({ label, value, options, onChange }: Props) {
+export default function GlassSelect({ label, value, options, onChange, name, placeholder }: Props) {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(0)
   const root = useRef<HTMLDivElement>(null)
@@ -19,6 +23,7 @@ export default function GlassSelect({ label, value, options, onChange }: Props) 
   const listId = `${uid}-list`
   const optionId = (i: number) => `${uid}-opt-${i}`
   const selected = Math.max(0, options.indexOf(value))
+  const shown = value || placeholder || options[0] || ''
 
   const openMenu = () => {
     setActive(selected)
@@ -87,15 +92,17 @@ export default function GlassSelect({ label, value, options, onChange }: Props) 
         aria-expanded={open}
         aria-controls={open ? listId : undefined}
         aria-activedescendant={open ? optionId(active) : undefined}
-        aria-label={`${label}: ${value}`}
+        aria-label={`${label}: ${shown}`}
+        data-empty={value ? undefined : true}
         onClick={() => (open ? closeMenu() : openMenu())}
         onKeyDown={onKey}
       >
-        <span className="gs-val">{value}</span>
+        <span className="gs-val">{shown}</span>
         <span className="gs-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </span>
       </button>
+      {name && <input type="hidden" name={name} value={value} />}
 
       {open && (
         <div ref={list} id={listId} className="gs-menu" role="listbox" aria-label={label}>
