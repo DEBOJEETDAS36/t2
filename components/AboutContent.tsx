@@ -1,6 +1,6 @@
 'use client'
 import type React from 'react'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useImages } from './ImagesProvider'
@@ -26,10 +26,6 @@ export default function AboutContent() {
     // Duplicate the row so the marquee can loop seamlessly.
     return items.length ? [...items, ...items] : []
   }, [list])
-  const [q, setQ] = useState('')
-  const rows = A.departures.filter(r =>
-    !q.trim() || `${r[0]} ${r[1]}`.toLowerCase().includes(q.trim().toLowerCase())
-  )
   const d = (s: string) => ({ '--d': s }) as React.CSSProperties
   return (
     <div className="pg">
@@ -134,34 +130,6 @@ export default function AboutContent() {
       </section>
 
       <section>
-        <div className="wrap">
-          <div className="head reveal"><div><span className="eyebrow">Our grand departures</span><h2>Corporate groups, <em>on the move</em></h2></div>
-            <p className="sub">{A.departures.length} corporate departures across India and around the world.</p></div>
-
-          <div className="abt-toolbar glass reveal">
-            <label className="abt-search">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4.5-4.5" /></svg>
-              <input aria-label="Search departures by corporate or destination" placeholder="Search corporate or destination…" value={q} onChange={e => setQ(e.target.value)} />
-              {q && <button type="button" aria-label="Clear search" onClick={() => setQ('')}>×</button>}
-            </label>
-          </div>
-
-          <p className="abt-count" aria-live="polite">Showing <b>{rows.length}</b> of {A.departures.length} departures</p>
-
-          <div className="abt-table glass reveal">
-            <div className="abt-thead" aria-hidden="true"><span>Corporate</span><span>Destination</span></div>
-            {rows.map((r, i) => (
-              <div className="abt-row" key={`${r[0]}-${r[1]}-${i}`}>
-                <b className="abt-co">{r[0]}</b>
-                <span className="abt-dest">{r[1]}</span>
-              </div>
-            ))}
-            {!rows.length && <p className="abt-empty">No departures match your search.</p>}
-          </div>
-        </div>
-      </section>
-
-      <section className="alt">
         <div className="wrap">
           <div className="head reveal"><div><span className="eyebrow">Glimpses of our events</span><h2>Stages we’ve <em>set</em></h2></div></div>
           <div className="abt-events">
