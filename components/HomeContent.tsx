@@ -38,11 +38,8 @@ export default function HomeContent() {
 <p className="reveal" style={{'--d':'.2s'} as React.CSSProperties}>Hand-crafted escapes to the world’s most breathtaking places — planned end to end, so you only have to arrive.</p>
 <div className="cta reveal" style={{'--d':'.3s'} as React.CSSProperties}><a href="#packages" className="btn pri">Explore packages →</a><a href="#about" className="btn gh">Why Bents</a></div>
 </div>
-<div className="visual reveal" style={{'--d':'.2s'} as React.CSSProperties}>
-
-<div className="chip glass c1"><strong>120+</strong>Destinations</div>
-<div className="chip glass c2"><strong>4.9 ★</strong>Traveller rating</div>
-</div></div>
+<div className="visual reveal" style={{'--d':'.2s'} as React.CSSProperties} />
+</div>
 </header>
 </div>
 
