@@ -50,9 +50,9 @@ export default function HomeContent() {
 <a href="#packages" className="btn pri">Search</a>
 </div>
 <div className="stats">
-<div><b data-c="15">0</b><small>YEARS OF EXPERIENCE</small></div>
-<div><b data-c="25000">0</b><small>HAPPY TRAVELLERS</small></div>
-<div><b data-c="120">0</b><small>DESTINATIONS</small></div>
+<div><b data-c="7.5" data-dec="1">0</b><small>YEARS OF EXPERIENCE</small></div>
+<div><b data-c="50000">0</b><small>HAPPY TRAVELLERS</small></div>
+<div><b data-c="35">0</b><small>DESTINATIONS</small></div>
 <div><b data-c="98" data-suffix="%">0</b><small>REPEAT CLIENTS</small></div>
 </div></div></div>
 
@@ -74,7 +74,7 @@ export default function HomeContent() {
 <p className="sub">We’re a small team of travel designers who obsess over the details you’ll remember — and the ones you’ll never have to think about.</p>
 <div className="feat">
 <div className="f glass"><i>✦</i><div><h3>Tailor-made itineraries</h3><p>Every day shaped around your pace, interests and budget.</p></div></div>
-<div className="f glass"><i>◈</i><div><h3>Trusted local partners</h3><p>Vetted hotels, guides and transfers across 120+ destinations.</p></div></div>
+<div className="f glass"><i>◈</i><div><h3>Trusted local partners</h3><p>Vetted hotels, guides and transfers across 35+ destinations.</p></div></div>
 <div className="f glass"><i>☾</i><div><h3>24/7 on-trip support</h3><p>A real person on call, wherever in the world you are.</p></div></div>
 </div></div>
 <div className="map reveal" style={{'--d':'.2s'} as React.CSSProperties}><OfficeMap hot={hot} setHot={setHot} /></div>

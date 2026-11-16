@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { TOURS } from '@/data/tours'
 import Pic from './Pic'
 const TABS = [['all', 'All'], ['asia', 'Asia'], ['mid', 'Middle East'], ['oce', 'Pacific']]
-const F = [['bali-nusa-penida', 'asia', 'Bali'], ['dubai-abu-dhabi', 'mid', 'Dubai'], ['blissful-japan', 'asia', 'Japan'], ['vietnam-unfolded', 'asia', 'Vietnam'], ['jewel-of-the-nile', 'asia', 'Sri Lanka'], ['scenic-new-zealand', 'oce', 'N. Zealand']]
+const F = [['bali-nusa-penida', 'asia', 'Bali'], ['dubai-abu-dhabi', 'mid', 'Dubai'], ['blissful-japan', 'asia', 'Japan'], ['vietnam-unfolded', 'asia', 'Vietnam'], ['jewel-of-the-nile', 'asia', 'Sri Lanka'], ['scenic-new-zealand', 'oce', 'N. Zealand'],
+  ['korea', 'asia', 'Korea'], ['georgia', 'asia', 'Georgia'], ['armenia', 'asia', 'Armenia'], ['bali', 'asia', 'Bali'], ['philippines', 'asia', 'Philippines'], ['egypt', 'mid', 'Egypt'], ['australia', 'oce', 'Australia'], ['singapore', 'asia', 'Singapore'], ['malaysia', 'asia', 'Malaysia'], ['russia', 'asia', 'Russia']]
 export default function Packages() {
   const [f, setF] = useState('all')
   return (

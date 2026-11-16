@@ -75,7 +75,7 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <ul>{t.perks.map(p => <li key={p}>{p}</li>)}</ul>
         <a href="#enquire" className="btn pri">Enquire about this tour →</a></aside></div>
       <section className="alt"><div className="wrap"><div className="head reveal"><div><span className="eyebrow">You may also like</span><h2>More <em>journeys</em></h2></div><Link href="/leisure" className="btn gh">All tours</Link></div>
-        <div className="g3">{Object.values(TOURS).filter(x => x.slug !== t.slug && x.region === t.region).slice(0, 3).map((x, i) => (
+        <div className="g3">{Object.values(TOURS).filter(x => !x.homeOnly && x.slug !== t.slug && x.region === t.region).slice(0, 3).map((x, i) => (
           <Link key={x.slug} href={`/leisure/${x.slug}`} className="post glass reveal" style={d(`${i * 0.08}s`)}><div className="img" style={{ '--a': x.a, '--b': x.b } as React.CSSProperties}><div className="pimg" data-l="Tour image · 800×500" />{x.label && <span className={'lbl ' + LC[x.label]}>{x.label}</span>}<span className="rg">{x.region === 'dom' ? 'Domestic' : 'International'}</span></div>
             <div className="pt"><div className="mt"><b>{x.place}</b><span>{x.days.length} days / {x.days.length - 1} nights</span></div><h3>{x.name}</h3><div className="tf"><span className="rt">★ {x.rating}</span></div><span className="rd">View itinerary →</span></div></Link>))}</div></div></section>
       <section id="enquire" style={{ scrollMarginTop: 70 }}><div className="wrap"><form className="cf glass reveal" onSubmit={enq.onSubmit}>

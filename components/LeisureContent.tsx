@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { TOURS } from '@/data/tours'
-const SLUG: Record<string, string> = Object.fromEntries(Object.values(TOURS).map(x => [x.name, x.slug]))
+const PUBLIC_TOURS = Object.values(TOURS).filter(x => !x.homeOnly)
+const SLUG: Record<string, string> = Object.fromEntries(PUBLIC_TOURS.map(x => [x.name, x.slug]))
 type Tour = [string, string, string, string[], number, string, number, number, string, string, string]
-const T: Tour[] = Object.values(TOURS).map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc] as Tour)
+const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc] as Tour)
 const CATS: string[] = ['All','Beach','Adventure','Culture','Honeymoon','Family','Wildlife','Luxury','Hills']
 const LC: Record<string, string> = {'Bestseller':'','New':'teal','Few seats left':'red','Honeymoon pick':'pink','Group departure':'blue','Family favourite':'green'}
 const SEG = [['all', 'All tours'], ['dom', 'Domestic'], ['intl', 'International']]

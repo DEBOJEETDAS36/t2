@@ -6,6 +6,8 @@ export interface TourData {
   days: [number, string, string, string, string[]][]
   stays: string[][]; policies: string[][]; included: string[]; excluded: string[]; perks: string[]
   price: number; gst: number; departure: string; priceNote: string
+  // Featured on the home page only; hidden from the /leisure listing and related tours.
+  homeOnly?: boolean
 }
 
 // One entry per tour. Add a tour here and it appears on /leisure and gets its own page at /leisure/<slug>.
@@ -4509,3 +4511,90 @@ export const TOURS: Record<string, TourData> = {
   "priceNote": "twin sharing"
  }
 }
+
+// Placeholder tours for the home-page "Journeys worth leaving for" cards.
+// They are marked homeOnly, so they do not appear on /leisure or in related
+// tours. Copy, images (public/images/tours/<slug>.<ext>) and prices are
+// placeholders — replace them with the real itinerary when it is ready.
+type PlaceholderDest = { slug: string; name: string; place: string; cats: string[]; a: string; b: string }
+
+const PLACEHOLDER_DESTS: PlaceholderDest[] = [
+ { slug: 'korea', name: 'Korea', place: 'South Korea', cats: ['Culture'], a: '#c0504d', b: '#243b53' },
+ { slug: 'georgia', name: 'Georgia', place: 'Georgia', cats: ['Hills', 'Culture'], a: '#b8862b', b: '#3b4a2a' },
+ { slug: 'armenia', name: 'Armenia', place: 'Armenia', cats: ['Culture'], a: '#a0673f', b: '#3a2a20' },
+ { slug: 'bali', name: 'Bali', place: 'Indonesia', cats: ['Beach', 'Honeymoon'], a: '#0e9196', b: '#064a52' },
+ { slug: 'philippines', name: 'Philippines', place: 'Philippines', cats: ['Beach', 'Adventure'], a: '#14a37f', b: '#0b3d56' },
+ { slug: 'egypt', name: 'Egypt', place: 'Egypt', cats: ['Culture', 'Luxury'], a: '#c98a2b', b: '#4a2e14' },
+ { slug: 'australia', name: 'Australia', place: 'Australia', cats: ['Adventure', 'Family'], a: '#d97b29', b: '#3b2314' },
+ { slug: 'singapore', name: 'Singapore', place: 'Singapore', cats: ['Family', 'Culture'], a: '#4a7fb5', b: '#1a2a52' },
+ { slug: 'malaysia', name: 'Malaysia', place: 'Malaysia', cats: ['Family', 'Beach'], a: '#2f9e7a', b: '#0d3b3b' },
+ { slug: 'russia', name: 'Russia', place: 'Russia', cats: ['Culture', 'Luxury'], a: '#6a86b8', b: '#1e2b45' }
+]
+
+const placeholderTour = (d: PlaceholderDest): TourData => ({
+  slug: d.slug,
+  name: d.name,
+  first: d.name,
+  accent: 'Escape',
+  region: 'intl',
+  place: d.place,
+  cats: d.cats,
+  desc: `A hand-crafted ${d.name} itinerary — details coming soon.`,
+  rating: 4.8,
+  label: 'New',
+  a: d.a,
+  b: d.b,
+  fixed: false,
+  tags: [['New', 'teal'], ['Customisable', 'teal']],
+  subtitle: `A hand-crafted ${d.name} itinerary — details coming soon.`,
+  route: [d.place],
+  heroLabels: [`Hero image · ${d.place} · 1400×900`, `${d.place} · 800×500`, `${d.place} · 800×500`, `${d.place} · 800×500`, `${d.place} · 800×500`],
+  facts: [
+    ['Duration', '5N / 6D'],
+    ['Departures', 'Flexible dates'],
+    ['Best for', d.cats.join(' · ')],
+    ['Region', 'International'],
+    ['Meals', 'Breakfast daily']
+  ],
+  overview: `A hand-crafted ${d.name} itinerary — details coming soon. Designed by our travel designers, every detail — transfers, stays and sightseeing — is arranged end to end so you only have to enjoy it.`,
+  highlights: [`${d.place} highlights coming soon`, 'Curated stays', 'Local experiences'],
+  nodes: [[d.place, '5 nights']],
+  days: [
+    [1, `Arrive ${d.place}`, 'D', 'Transfer to your hotel.', ['Meet & greet on arrival', 'Hotel check-in']],
+    [2, `${d.place} highlights`, 'B', 'A day of sightseeing — details coming soon.', []],
+    [3, `${d.place} at leisure`, 'B', 'Free day to explore at your own pace.', []],
+    [4, 'Optional experiences', 'B', 'Add-on activities to be finalised.', []],
+    [5, `${d.place} at leisure`, 'B', 'Free day to explore at your own pace.', []],
+    [6, 'Departure', 'B', 'Transfer to the airport.', ['Transfer to the airport']]
+  ],
+  stays: [[`Premium stay · ${d.place}`, d.place, '5 nights', d.a, d.b]],
+  policies: [
+    ['Important notes', 'Itinerary order may occasionally be amended, with all services unchanged. A third person in a triple room is typically given a rollaway bed. Guests aged 12 and under are considered children. Weather and local closures may affect sightseeing.'],
+    ['Baggage & transfers', 'One check-in bag and one handbag per person is recommended. Comfortable walking shoes are advised for sightseeing.'],
+    ['Pricing & changes', 'Prices are per person on twin sharing, excluding GST, and may change with airfare, season and availability. Date changes are subject to availability.'],
+    ['Liability & refunds', 'There are no refunds for unused services. Guests are responsible for damages to rooms or vehicles. Wanderline is not liable for loss of belongings or events beyond its control.']
+  ],
+  included: [
+    '5 nights’ accommodation on twin sharing, or similar standard',
+    'Daily breakfast as per itinerary',
+    'Private vehicle for transfers and sightseeing',
+    'Entrance fees and activities mentioned in the itinerary',
+    'Professional tour manager or local representative'
+  ],
+  excluded: [
+    '5% GST',
+    'Airfare and train fares unless stated',
+    'Lunches and meals not in the itinerary',
+    'Personal expenses — laundry, drinks, minibar, calls',
+    'Optional activities, porterage and tips',
+    'Visa fees and travel insurance'
+  ],
+  perks: ['Handcrafted by our travel designers', 'Daily breakfast included', '24/7 on-trip support'],
+  price: 0,
+  gst: 5,
+  departure: 'Flexible dates',
+  priceNote: 'twin sharing',
+  homeOnly: true
+})
+
+for (const d of PLACEHOLDER_DESTS) if (!TOURS[d.slug]) TOURS[d.slug] = placeholderTour(d)
