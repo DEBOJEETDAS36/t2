@@ -73,7 +73,6 @@ export default function HomeContent() {
 <div className="d reveal wide" style={{'--d':'.1s','--a':'#2f7a5e','--b':'#0b3a2e'} as React.CSSProperties}><Pic name="destinations/Sundarban" alt="Sundarban" /><span><small>Wildlife</small>Sundarban</span></div>
 </div></div></section>
 
-<section style={{'paddingTop':'0'} as React.CSSProperties}><div className="wrap"><div className="teaser glass reveal"><div style={{'position':'relative'} as React.CSSProperties}><span className="eyebrow">Corporate &amp; MICE</span><h2>Events that move <em>teams</em></h2><p className="sub">Meetings, incentives, conferences and exhibitions — designed and delivered end to end.</p><div style={{'marginTop':'28px'} as React.CSSProperties}><Link href="/mice" className="btn pri">Explore MICE →</Link></div></div><div className="tz"><div><b>M</b>Meetings</div><div><b>I</b>Incentives</div><div><b>C</b>Conferences</div><div><b>E</b>Exhibitions</div></div></div></div></section>
 <section className="about" id="about"><div className="wrap ab">
 <div className="reveal"><span className="eyebrow">About us</span><h2>Travel, planned with <em>care</em></h2>
 <p className="sub">We’re a small team of travel designers who obsess over the details you’ll remember — and the ones you’ll never have to think about.</p>
