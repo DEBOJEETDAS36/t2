@@ -68,7 +68,7 @@ export default function HomeContent() {
 <div className="d reveal" style={{'--d':'.2s','--a':'#b85a7a','--b':'#2a2050'} as React.CSSProperties}><Pic name="destinations/Sikkim" alt="Sikkim" /><span><small>Mountain</small>Sikkim</span></div>
 <div className="d reveal" style={{'--d':'.1s','--a':'#e0a63c','--b':'#2a6a6e'} as React.CSSProperties}><Pic name="destinations/Pondicherry" alt="Pondicherry" /><span><small>Coastal</small>Pondicherry</span></div>
 <div className="d reveal" style={{'--d':'.2s','--a':'#d4823a','--b':'#5a2a14'} as React.CSSProperties}><Pic name="destinations/Gujarat" alt="Gujarat" /><span><small>Heritage</small>Gujarat</span></div>
-<div className="d reveal" style={{'--d':'.1s','--a':'#3f7a55','--b':'#163a24'} as React.CSSProperties}><Pic name="destinations/MP" alt="Madhya Pradesh" /><span><small>Wildlife</small>MP</span></div>
+<div className="d reveal" style={{'--d':'.1s','--a':'#3f7a55','--b':'#163a24'} as React.CSSProperties}><Pic name="destinations/Madhya Pradesh" alt="Madhya Pradesh" /><span><small>Wildlife</small>Madhya Pradesh</span></div>
 <div className="d reveal" style={{'--d':'.2s','--a':'#b06a3a','--b':'#3a1e14'} as React.CSSProperties}><Pic name="destinations/Hyderabad" alt="Hyderabad" /><span><small>Heritage</small>Hyderabad</span></div>
 <div className="d reveal wide" style={{'--d':'.1s','--a':'#2f7a5e','--b':'#0b3a2e'} as React.CSSProperties}><Pic name="destinations/Sundarban" alt="Sundarban" /><span><small>Wildlife</small>Sundarban</span></div>
 </div></div></section>
