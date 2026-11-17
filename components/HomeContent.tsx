@@ -106,7 +106,7 @@ export default function HomeContent() {
 
 <section className="contact" id="contact" style={{'paddingTop':'0'} as React.CSSProperties}><div className="wrap"><div className="box glass reveal">
 <div><span className="eyebrow">Get in touch</span><h2>Let’s plan your <em>escape</em></h2>
-<div className="info"><div><b>Call us</b>+91-9830032368</div><div><b>Email</b>bentsholidays@gmail.com</div><div><b>Office</b>22 Lake Place, Kolkata, India</div></div></div>
+<div className="info"><div><b>Call us</b>+91-9830032368</div><div><b>Email</b>info@bents.in</div><div><b>Office</b>22 Lake Place, Kolkata, India</div></div></div>
 <form onSubmit={enq.onSubmit}>
 <input name="name" className="in" placeholder="Your name" required /><input name="email" className="in" type="email" placeholder="Email address" required /><textarea name="message" className="in" placeholder="Tell us about your dream trip" maxLength={1000}></textarea>
 <button className="btn pri" style={{'justifySelf':'start'} as React.CSSProperties}>{sent?'Thank you — we’ll be in touch ✓':'Send enquiry'}</button>{enq.err && <p className="ferr full">{enq.err}</p>}</form>
