@@ -4516,19 +4516,19 @@ export const TOURS: Record<string, TourData> = {
 // They are marked homeOnly, so they do not appear on /leisure or in related
 // tours. Copy, images (public/images/tours/<slug>.<ext>) and prices are
 // placeholders — replace them with the real itinerary when it is ready.
-type PlaceholderDest = { slug: string; name: string; place: string; cats: string[]; a: string; b: string }
+type PlaceholderDest = { slug: string; name: string; place: string; desc: string; cats: string[]; a: string; b: string }
 
 const PLACEHOLDER_DESTS: PlaceholderDest[] = [
- { slug: 'korea', name: 'Korea', place: 'South Korea', cats: ['Culture'], a: '#c0504d', b: '#243b53' },
- { slug: 'georgia', name: 'Georgia', place: 'Georgia', cats: ['Hills', 'Culture'], a: '#b8862b', b: '#3b4a2a' },
- { slug: 'armenia', name: 'Armenia', place: 'Armenia', cats: ['Culture'], a: '#a0673f', b: '#3a2a20' },
- { slug: 'bali', name: 'Bali', place: 'Indonesia', cats: ['Beach', 'Honeymoon'], a: '#0e9196', b: '#064a52' },
- { slug: 'philippines', name: 'Philippines', place: 'Philippines', cats: ['Beach', 'Adventure'], a: '#14a37f', b: '#0b3d56' },
- { slug: 'egypt', name: 'Egypt', place: 'Egypt', cats: ['Culture', 'Luxury'], a: '#c98a2b', b: '#4a2e14' },
- { slug: 'australia', name: 'Australia', place: 'Australia', cats: ['Adventure', 'Family'], a: '#d97b29', b: '#3b2314' },
- { slug: 'singapore', name: 'Singapore', place: 'Singapore', cats: ['Family', 'Culture'], a: '#4a7fb5', b: '#1a2a52' },
- { slug: 'malaysia', name: 'Malaysia', place: 'Malaysia', cats: ['Family', 'Beach'], a: '#2f9e7a', b: '#0d3b3b' },
- { slug: 'russia', name: 'Russia', place: 'Russia', cats: ['Culture', 'Luxury'], a: '#6a86b8', b: '#1e2b45' }
+ { slug: 'korea', name: 'Korea', place: 'South Korea', desc: 'Seoul neon, ancient palaces and coastal escapes.', cats: ['Culture'], a: '#c0504d', b: '#243b53' },
+ { slug: 'georgia', name: 'Georgia', place: 'Georgia', desc: 'Caucasus peaks, historic wine trails and cobblestone charm.', cats: ['Hills', 'Culture'], a: '#b8862b', b: '#3b4a2a' },
+ { slug: 'armenia', name: 'Armenia', place: 'Armenia', desc: 'Ancient monasteries, mountain vistas and timeless heritage.', cats: ['Culture'], a: '#a0673f', b: '#3a2a20' },
+ { slug: 'bali', name: 'Bali', place: 'Indonesia', desc: 'Emerald rice terraces, sacred temples and island bliss.', cats: ['Beach', 'Honeymoon'], a: '#0e9196', b: '#064a52' },
+ { slug: 'philippines', name: 'Philippines', place: 'Philippines', desc: 'Turquoise lagoons, pristine islands and tropical sun.', cats: ['Beach', 'Adventure'], a: '#14a37f', b: '#0b3d56' },
+ { slug: 'egypt', name: 'Egypt', place: 'Egypt', desc: 'Ancient pyramids, Nile cruises and timeless wonders.', cats: ['Culture', 'Luxury'], a: '#c98a2b', b: '#4a2e14' },
+ { slug: 'australia', name: 'Australia', place: 'Australia', desc: 'Golden beaches, rugged outback and vibrant cities.', cats: ['Adventure', 'Family'], a: '#d97b29', b: '#3b2314' },
+ { slug: 'singapore', name: 'Singapore', place: 'Singapore', desc: 'Futuristic gardens, dazzling skylines and vibrant street food.', cats: ['Family', 'Culture'], a: '#4a7fb5', b: '#1a2a52' },
+ { slug: 'malaysia', name: 'Malaysia', place: 'Malaysia', desc: 'Rainforest adventures, iconic towers and cultural gems.', cats: ['Family', 'Beach'], a: '#2f9e7a', b: '#0d3b3b' },
+ { slug: 'russia', name: 'Russia', place: 'Russia', desc: 'Imperial palaces, colorful domes and grand history.', cats: ['Culture', 'Luxury'], a: '#6a86b8', b: '#1e2b45' }
 ]
 
 const placeholderTour = (d: PlaceholderDest): TourData => ({
@@ -4539,14 +4539,14 @@ const placeholderTour = (d: PlaceholderDest): TourData => ({
   region: 'intl',
   place: d.place,
   cats: d.cats,
-  desc: `A hand-crafted ${d.name} itinerary — details coming soon.`,
+  desc: d.desc,
   rating: 4.8,
   label: 'New',
   a: d.a,
   b: d.b,
   fixed: false,
   tags: [['New', 'teal'], ['Customisable', 'teal']],
-  subtitle: `A hand-crafted ${d.name} itinerary — details coming soon.`,
+  subtitle: d.desc,
   route: [d.place],
   heroLabels: [`Hero image · ${d.place} · 1400×900`, `${d.place} · 800×500`, `${d.place} · 800×500`, `${d.place} · 800×500`, `${d.place} · 800×500`],
   facts: [
