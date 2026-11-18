@@ -3,8 +3,8 @@ import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
-import { TOURS } from '@/data/tours'
-const PUBLIC_TOURS = Object.values(TOURS).filter(x => !x.homeOnly)
+import { LEISURE_TOURS } from '@/data/leisure-tours'
+const PUBLIC_TOURS = LEISURE_TOURS
 const SLUG: Record<string, string> = Object.fromEntries(PUBLIC_TOURS.map(x => [x.name, x.slug]))
 type Tour = [string, string, string, string[], number, string, number, number, string, string, string]
 const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc] as Tour)
