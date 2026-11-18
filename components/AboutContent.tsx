@@ -154,7 +154,7 @@ export default function AboutContent() {
 
       <section>
         <div className="wrap">
-          <div className="head reveal"><div><span className="eyebrow">Our offices</span><h2>Find us <em>across India</em></h2></div><p className="sub">A registered office in Gurugram and branch offices in 12 cities.</p></div>
+          <div className="head reveal"><div><span className="eyebrow">Our offices</span><h2>Find us <em>across India</em></h2></div><p className="sub">A registered office in Kolkata and branch offices in 11 cities.</p></div>
           <div className="abt-offices">
             {A.offices.map((o, i) => (
               <article key={`${o[0]}-${i}`} className={'abt-office glass reveal' + (o[3] ? ' reg' : '')} style={d(`${(i % 3) * 0.07}s`)}>

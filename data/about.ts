@@ -61,10 +61,10 @@ export const ABOUT = {
   government: ['Election Commission of India', 'Ayodhya Development Authority', 'Government of Uttarakhand', 'Ministry of Civil Aviation', 'Ministry of Road Transport and Highways', 'Ministry of Information and Broadcasting'],
   // [city, state/label, address, registered?]
   offices: [
-    ['Gurugram', 'Registered office · Haryana', '1582, Saraswati Kunj, S/Div Gurugram, Gurugram, Haryana, 122001', true],
+    ['Kolkata', 'Registered office · West Bengal', '2nd Floor, 22 Lake Place, Kolkata, West Bengal, 700029', true],
+    ['Gurugram', 'Branch office · Haryana', '1582, Saraswati Kunj, S/Div Gurugram, Gurugram, Haryana, 122001', false],
     ['Delhi', 'Branch office', '2E/6, Jhandewalan Extn, New Delhi, 110055', false],
     ['Gurugram', 'Branch office · Haryana', 'Office No. 3-4-5, Vipul Agora Mall, Near MG Road Metro, Sec-28, Haryana – 122001', false],
-    ['Kolkata', 'Branch office · West Bengal', '2nd Floor, 22 Lake Place, Kolkata, West Bengal, 700029', false],
     ['Goa', 'Branch office', '2nd Floor, 201, Shanta Building, Behind 581 Zonal Office, Goa Caculo Circle, St. Inez, Panjim, North Goa', false],
     ['Pune', 'Branch office · Maharashtra', '4th Floor, 15A, City Vista, Tower-A, Fountain Road, Kharadi, Pune, Maharashtra, 411014', false],
     ['Udaipur', 'Branch office · Rajasthan', '94, Hanuman Colony, Fatehpura, Udaipur, Rajasthan, 313001', false],
