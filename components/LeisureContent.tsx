@@ -3,16 +3,18 @@ import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
+import { useImages } from './ImagesProvider'
 import { LEISURE_TOURS } from '@/data/leisure-tours'
 const PUBLIC_TOURS = LEISURE_TOURS
 const SLUG: Record<string, string> = Object.fromEntries(PUBLIC_TOURS.map(x => [x.name, x.slug]))
-type Tour = [string, string, string, string[], number, string, number, number, string, string, string]
-const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc] as Tour)
+type Tour = [string, string, string, string[], number, string, number, number, string, string, string, string[]]
+const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc, x.img || []] as Tour)
 const CATS: string[] = ['All','Beach','Adventure','Culture','Honeymoon','Family','Wildlife','Luxury','Hills']
 const LC: Record<string, string> = {'Bestseller':'','New':'teal','Few seats left':'red','Honeymoon pick':'pink','Group departure':'blue','Family favourite':'green'}
 const SEG = [['all', 'All tours'], ['dom', 'Domestic'], ['intl', 'International']]
 export default function LeisureContent() {
   useSiteEffects()
+  const { findAny } = useImages()
   const [r, setR] = useState('all')
   const [c, setC] = useState('All')
   const [q, setQ] = useState('')
@@ -57,10 +59,10 @@ export default function LeisureContent() {
         </div>
         <div className="cnt">Showing <b>{L.length}</b> of {T.length} tours{q ? ` for “${q}”` : ''}</div>
         <div className="g3 tgrid">
-          {L.length ? L.map((t, i) => (
+          {L.length ? L.map((t, i) => { const pic = findAny(t[2], ...t[11]); return (
             <Link key={t[0]} href={SLUG[t[0]] ? `/leisure/${SLUG[t[0]]}` : '/contact'} className={'post glass' + (seen.has(t[0]) ? '' : ' new')} style={{ animationDelay: `${i * 0.05}s` }}>
               <div className="img" style={{ '--a': t[8], '--b': t[9] } as React.CSSProperties}>
-                <div className="pimg" data-l="Tour image · 800×500" />
+                {pic ? <img className="pic" src={pic} alt={t[2]} loading="lazy" decoding="async" /> : <div className="pimg" data-l="Tour image · 800×500" />}
                 {t[5] && <span className={'lbl ' + LC[t[5]]}>{t[5]}</span>}
                 <span className="rg">{t[1] === 'dom' ? 'Domestic' : 'International'}</span>
               </div>
@@ -71,7 +73,7 @@ export default function LeisureContent() {
                 <span className="rd">View itinerary →</span>
               </div>
             </Link>
-          )) : (
+          ) }) : (
             <div className="empty glass"><h3>No tours match your search</h3><p>Try a different keyword, or clear the filters.</p><button className="btn pri" onClick={reset}>Reset filters</button></div>
           )}
         </div>

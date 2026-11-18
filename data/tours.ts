@@ -8,6 +8,8 @@ export interface TourData {
   price: number; gst: number; departure: string; priceNote: string
   // Featured on the home page only; hidden from the /leisure listing and related tours.
   homeOnly?: boolean
+  // Extra file names (without extension) to look for in public/images for this tour's photo.
+  img?: string[]
 }
 
 // One entry per tour. Add a tour here and it appears on /leisure and gets its own page at /leisure/<slug>.

@@ -78,6 +78,7 @@ export const LEISURE_TOURS: TourData[] = [
   {
     slug: 'phuket-krabi-thailand',
     name: 'Phuket & Krabi Beaches & Islands',
+    img: ['Thailand s', 'Thailand'],
     first: 'Beaches &',
     accent: 'Island Adventures',
     region: 'intl',
@@ -234,6 +235,7 @@ export const LEISURE_TOURS: TourData[] = [
   {
     slug: 'bangkok-pattaya-thailand',
     name: 'Bangkok & Pattaya City Buzz & Beach',
+    img: ['Thailand s', 'Thailand'],
     first: 'City Buzz &',
     accent: 'Beach Break',
     region: 'intl',
