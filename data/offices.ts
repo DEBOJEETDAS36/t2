@@ -2,8 +2,8 @@
 // lon/lat place each pin on the schematic map; dx/dy nudge crowded cities apart; l = label on the left; hq = head office.
 export interface Office { n: string; lon: number; lat: number; dx?: number; dy?: number; l?: boolean; hq?: boolean }
 export const OFFICES: Office[] = [
-  { n: 'Delhi', lon: 77.2, lat: 28.6 },
   { n: 'Kolkata', lon: 88.4, lat: 22.6, hq: true },
+  { n: 'Delhi', lon: 77.2, lat: 28.6 },
   { n: 'Mumbai', lon: 72.9, lat: 19.1, l: true },
   { n: 'Bengaluru', lon: 77.6, lat: 12.97 },
   { n: 'Goa', lon: 74.0, lat: 15.5, l: true },
