@@ -42,7 +42,7 @@ export default function AboutContent() {
       <section id="who" style={{ paddingTop: 20 }}>
         <div className="wrap abt-who">
           <div className="abt-art reveal">
-            <Ph name="about/team" label="Team photo · 900×1100" />
+            <Ph name="about/team" label="Team photo · 16:7" />
             <div className="abt-badge glass">
               <b>31</b>
               <span>years of<br />leadership</span>
