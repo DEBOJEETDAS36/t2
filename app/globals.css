@@ -99,9 +99,15 @@ h1{font-size:clamp(2.8rem,6.4vw,5.4rem)}
 .tabs{display:flex;gap:8px;padding:6px;border-radius:99px}
 .tabs button{background:none;border:0;color:var(--mute);padding:9px 20px;border-radius:99px;cursor:pointer;font:500 .85rem var(--sans);transition:all .4s var(--ease)}
 .tabs button.on{background:var(--teal);color:#fff;box-shadow:0 0 22px var(--glow)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.card{overflow:hidden;transition:transform .7s var(--ease),box-shadow .7s var(--ease),border-color .5s,opacity .5s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-10px);box-shadow:0 30px 60px -24px var(--glow);border-color:var(--teal)}
+.cards{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:240px;gap:20px}
+.card:first-child{grid-row:span 2}
+.card.wide{grid-column:span 2}
+/* Filtered tabs show a simple even grid so spans can't leave gaps. */
+.cards.flat{grid-template-columns:repeat(3,1fr)}
+.cards.flat .card{grid-row:auto;grid-column:auto}
+.card{border-radius:22px;position:relative;overflow:hidden;padding:20px;display:flex;align-items:end;background:linear-gradient(160deg,var(--a),var(--b))}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.5));pointer-events:none}
+.card>span{position:relative;z-index:2;color:#fff;font:400 1.7rem var(--serif)}
 .card.hide{display:none}
 .img{height:230px;position:relative;overflow:hidden;background:linear-gradient(150deg,var(--a),var(--b))}
 .img:before{content:attr(data-n);position:absolute;left:-6px;bottom:-26px;font:italic 300 6rem var(--serif);color:rgba(255,255,255,.2);white-space:nowrap;transition:transform 1.2s var(--ease)}
@@ -179,7 +185,11 @@ footer li a:hover{color:var(--fg)}
 @media(max-width:960px){
 .links,.nbtn{display:none}.burger{display:grid}
 .hero .grid,.ab,.contact .box{grid-template-columns:1fr}.visual{height:400px}
-.cards,.blogs,.tw{grid-template-columns:1fr}
+.blogs,.tw{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+.card:first-child{grid-row:auto;grid-column:span 2}
+.cards.flat{grid-template-columns:1fr 1fr}
+.card>span{font-size:1.35rem}
 .dest{grid-template-columns:1fr 1fr}.d:first-child{grid-row:auto;grid-column:span 2}
 .bar{grid-template-columns:1fr}.bar .gs{border:0;border-bottom:1px solid var(--line)}
 .stats{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:1fr 1fr}.contact .box{padding:30px}
