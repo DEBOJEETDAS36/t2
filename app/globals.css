@@ -763,12 +763,11 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed}
 .abt-cta:before{z-index:0}
 .abt-cta>*{position:relative;z-index:1}
 .abt-cta .sub{margin:14px auto 22px}
-.abt-contact{display:flex;justify-content:center;gap:38px;flex-wrap:wrap;margin:0 0 28px}
-.abt-contact>div{display:grid;gap:10px;justify-items:center}
-.abt-contact small{color:var(--gold);font-size:.64rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
-.abt-contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.abt-contact-row a{padding:8px 15px;border:1px solid var(--line);border-radius:99px;background:var(--card);font-size:.86rem;transition:all .4s var(--ease)}
-.abt-contact-row a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 24px -14px rgba(255,198,0,.55)}
+.abt-contact{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin:0 0 28px;align-items:flex-start}
+.abt-contact-person{display:grid;gap:8px;justify-items:center}
+.abt-contact-person a{padding:8px 15px;border:1px solid var(--line);border-radius:99px;background:var(--card);font-size:.86rem;transition:all .4s var(--ease)}
+.abt-contact-person a.tel{font-size:.8rem;color:var(--mute)}
+.abt-contact-person a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 24px -14px rgba(255,198,0,.55)}
 /* Keep reveal's stagger for opacity, but let hover motion run without the reveal delay. */
 .pg .abt-panel[data-vis],.pg .abt-person[data-vis],.pg .abt-mice-card[data-vis],.pg .abt-event[data-vis],.pg .abt-pillar[data-vis],.pg .abt-office[data-vis]{
   transition:opacity 1s var(--ease) var(--d,0s),transform .7s var(--ease) 0s,box-shadow .7s var(--ease) 0s,border-color .5s

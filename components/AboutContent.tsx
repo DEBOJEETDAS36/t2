@@ -170,8 +170,12 @@ export default function AboutContent() {
             <h2>Let’s plan your next <em>journey</em></h2>
             <p className="sub">Tell us where you’d like to go — our team will shape the rest.</p>
             <div className="abt-contact">
-              <div><small>Email</small><div className="abt-contact-row">{A.emails.map(e => <a key={e} href={`mailto:${e}`}>{e}</a>)}</div></div>
-              <div><small>Call</small><div className="abt-contact-row">{A.phones.map(p => <a key={p} href={`tel:${p.replace(/\s/g, '')}`}>{p}</a>)}</div></div>
+              {A.contacts.map(([e, p]) => (
+                <div className="abt-contact-person" key={e}>
+                  <a href={`mailto:${e}`}>{e}</a>
+                  <a className="tel" href={`tel:${p.replace(/\s/g, '')}`}>{p}</a>
+                </div>
+              ))}
             </div>
             <Link href="/contact" className="btn pri">Send an enquiry →</Link>
           </div>

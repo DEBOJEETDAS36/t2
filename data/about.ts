@@ -75,6 +75,10 @@ export const ABOUT = {
     ['Hyderabad', 'Branch office · Telangana', 'Building No. H5/497, Near Hi-Tech City, Izzath Nagar, Kondapur, Hyderabad, 500084', false],
     ['Kochi', 'Branch office · Kerala', 'Suite F6, LR Tower, 39/2475-B1, South Janatha Road, Palarivattom, Kochi, Ernakulam, Kerala – 682025', false],
   ] as [string, string, string, boolean][],
-  phones: ['+91 98300 32368', '+91 90380 05628', '+91 97333 03580'],
-  emails: ['anamitra@bents.in', 'tannistha@bents.in', 'saumyadip@bents.in'],
+  // [email, phone] — paired per person
+  contacts: [
+    ['anamitra@bents.in', '+91 98300 32368'],
+    ['tannistha@bents.in', '+91 90380 05628'],
+    ['saumyadip@bents.in', '+91 97333 03580'],
+  ] as [string, string][],
 }
