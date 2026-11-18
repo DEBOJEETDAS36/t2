@@ -38,10 +38,6 @@ export default function AboutContent() {
         <div className="wrap abt-who">
           <div className="abt-art reveal">
             <Ph name="contact/Office" label="Office photo · 16:7" />
-            <div className="abt-badge glass">
-              <b>31</b>
-              <span>years of<br />leadership</span>
-            </div>
           </div>
           <div className="reveal" style={d('.15s')}>
             <span className="eyebrow">Who are we</span>
