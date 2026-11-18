@@ -13,11 +13,6 @@ function Ph({ name, label }: { name: string; label: string }) {
   return find(name) ? <div className="phi"><Pic name={name} alt={label.split(' · ')[0]} /></div> : <div className="pimg" data-l={label} />
 }
 
-const MICE: [string, string[], string][] = [
-  ['International', A.intl, 'intl'],
-  ['Domestic', A.dom, 'dom'],
-]
-
 export default function AboutContent() {
   useSiteEffects()
   const { list } = useImages()
@@ -109,26 +104,6 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <section className="alt">
-        <div className="wrap">
-          <div className="head reveal"><div><span className="eyebrow">M.I.C.E. groups</span><h2>Groups we’ve taken <em>everywhere</em></h2></div><p className="sub">Meetings, incentives, conferences and exhibitions — across India and around the world.</p></div>
-          <div className="abt-mice">
-            {MICE.map(([t, places, k], i) => (
-              <div key={t} className="abt-mice-card glass reveal" style={d(`${i * 0.12}s`)}>
-                <div className="abt-mice-head">
-                  <span className="eyebrow">{t}</span>
-                  <h3>M.I.C.E. Groups</h3>
-                </div>
-                <div className="abt-tags abt-tags-sm">{places.map(x => <span key={x}>{x}</span>)}</div>
-                <div className="abt-mice-photos">
-                  {[1, 2, 3].map(n => <div key={n} className="abt-media"><Ph name={`about/mice-${k}-${n}`} label="Group photo · 800×500" /></div>)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section>
         <div className="wrap">
           <div className="head reveal"><div><span className="eyebrow">Glimpses of our events</span><h2>Stages we’ve <em>set</em></h2></div></div>
@@ -174,8 +149,6 @@ export default function AboutContent() {
           ) : (
             <div className="abt-clients reveal">{A.clients.map(c => <span key={c}>{c}</span>)}</div>
           )}
-          <p className="eyebrow reveal" style={{ textAlign: 'center', margin: '44px 0 16px' }}>Government &amp; public sector</p>
-          <div className="abt-clients abt-gov reveal">{A.government.map(c => <span key={c}>{c}</span>)}</div>
         </div>
       </section>
 
