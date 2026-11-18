@@ -61,7 +61,7 @@ export const ABOUT = {
   government: ['Election Commission of India', 'Ayodhya Development Authority', 'Government of Uttarakhand', 'Ministry of Civil Aviation', 'Ministry of Road Transport and Highways', 'Ministry of Information and Broadcasting'],
   // [city, state/label, address, registered?]
   offices: [
-    ['Kolkata', 'Registered office · West Bengal', '2nd Floor, 22 Lake Place, Kolkata, West Bengal, 700029', true],
+    ['Kolkata', 'Registered office · West Bengal', '22 Lake Place, Kolkata, West Bengal, 700029', true],
     ['Gurugram', 'Branch office · Haryana', '1582, Saraswati Kunj, S/Div Gurugram, Gurugram, Haryana, 122001', false],
     ['Delhi', 'Branch office', '2E/6, Jhandewalan Extn, New Delhi, 110055', false],
     ['Gurugram', 'Branch office · Haryana', 'Office No. 3-4-5, Vipul Agora Mall, Near MG Road Metro, Sec-28, Haryana – 122001', false],
