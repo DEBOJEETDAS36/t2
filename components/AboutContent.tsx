@@ -106,7 +106,7 @@ export default function AboutContent() {
           <div className="abt-events">
             {A.events.map((e, i) => (
               <figure key={e} className="abt-event reveal" style={d(`${(i % 4) * 0.08}s`)}>
-                <div className="abt-media"><Ph name={`about/event-${e.toLowerCase().replace(/\s+/g, '-')}`} label={`${e} · 800×500`} /><span className="abt-event-idx">0{i + 1}</span></div>
+                <div className="abt-media"><Ph name={`about/${e}`} label={`${e} · 800×500`} /><span className="abt-event-idx">0{i + 1}</span></div>
                 <figcaption>{e}</figcaption>
               </figure>
             ))}
