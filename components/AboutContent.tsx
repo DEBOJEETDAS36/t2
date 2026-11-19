@@ -78,7 +78,7 @@ export default function AboutContent() {
           <div className="abt-people">
             <div className="abt-team-photo reveal">
               <div className="abt-media abt-team-media">
-                <Ph name={A.managementPhoto} label="Anamitra & Tannistha · 1600×800" />
+                <Ph name={A.managementPhoto} label="Anamitra & Tannistha · 1448×1086" />
               </div>
             </div>
             {A.management.map((m, i) => (

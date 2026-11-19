@@ -5,8 +5,8 @@ export const ABOUT = {
     'With a strong network of global partners, industry expertise and a customer-first approach, we specialise in creating travel journeys that are effortless, enjoyable and tailored to perfection.',
   ],
   quote: 'We believe your journey is our responsibility — and we execute every detail with professionalism, creativity and care.',
-  // One shared photo of both leaders. Drop the file at public/images/about/anamitra-tannistha.(jpg|png|webp) — ~1600×800.
-  managementPhoto: 'about/anamitra-tannistha',
+  // One shared photo of both leaders: public/images/about/bents_head.(jpg|jpeg|png|webp) — 1448×1086 (4:3).
+  managementPhoto: 'about/bents_head',
   excellence: [
     'Premium travel & event management company',
     'Expertise in corporate travel, MICE, leisure groups & gifting',
