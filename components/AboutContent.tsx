@@ -76,12 +76,14 @@ export default function AboutContent() {
         <div className="wrap">
           <div className="head reveal"><div><span className="eyebrow">Management team</span><h2>The people <em>behind</em> Bents</h2></div><p className="sub">Decades of experience across travel, events and customer care.</p></div>
           <div className="abt-people">
+            <div className="abt-team-photo reveal">
+              <div className="abt-media abt-team-media">
+                <Ph name={A.managementPhoto} label="Anamitra & Tannistha · 1600×800" />
+              </div>
+            </div>
             {A.management.map((m, i) => (
               <article key={m.name} className="abt-person glass reveal" style={d(`${i * 0.12}s`)}>
-                <div className="abt-portrait abt-media" style={{ '--a': i ? '#d4a017' : '#0e9196', '--b': i ? '#6a3a1a' : '#064a52' } as React.CSSProperties}>
-                  <Ph name={m.slot} label="Portrait · 600×750" />
-                  <span className="abt-num">0{i + 1}</span>
-                </div>
+                <span className="abt-num">0{i + 1}</span>
                 <div className="abt-bio">
                   <small>{m.role}</small>
                   <h3>{m.name}</h3>

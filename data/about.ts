@@ -5,6 +5,8 @@ export const ABOUT = {
     'With a strong network of global partners, industry expertise and a customer-first approach, we specialise in creating travel journeys that are effortless, enjoyable and tailored to perfection.',
   ],
   quote: 'We believe your journey is our responsibility — and we execute every detail with professionalism, creativity and care.',
+  // One shared photo of both leaders. Drop the file at public/images/about/anamitra-tannistha.(jpg|png|webp) — ~1600×800.
+  managementPhoto: 'about/anamitra-tannistha',
   excellence: [
     'Premium travel & event management company',
     'Expertise in corporate travel, MICE, leisure groups & gifting',
@@ -14,8 +16,8 @@ export const ABOUT = {
   ],
   specialization: ['Corporate Incentive Tours', 'Corporate Events', 'Corporate Gifting', 'Leisure Holidays', 'Business Travel', 'Airline Ticketing', 'Visa & Other Travel Services', 'Venue Selection', 'Exhibitions & Trade Shows', 'Hotel Bookings', 'Product Launches', 'Activations & Promotions', 'Weddings & Social Events'],
   management: [
-    { name: 'Anamitra Biswas (Rana)', role: 'Leads the venture', slot: 'about/anamitra-biswas', bio: 'With over 31 years of leadership experience at AMEX TRS, Thomas Cook and Tata Capital, Anamitra drives the venture with expertise in corporate travel, leisure travel and MICE operations, ensuring seamless delivery across all verticals. A natural mentor, he guides teams and oversees operations with precision, while his passion for sports — basketball, cricket and horse polo — adds to his dynamic persona.' },
-    { name: 'Tannistha Banerjee', role: 'Managing Partner', slot: 'about/tannistha-banerjee', bio: 'Tannistha brings two decades of industry expertise from Cathay Pacific, SITA, Thomas Cook, Tata Capital and Citius Holidays. Transitioning from operations to sales, she turned challenges into milestones, establishing herself as a strategic leader shaping growth and success.' },
+    { name: 'Anamitra Biswas (Rana)', role: 'Leads the venture', bio: 'With over 31 years of leadership experience at AMEX TRS, Thomas Cook and Tata Capital, Anamitra drives the venture with expertise in corporate travel, leisure travel and MICE operations, ensuring seamless delivery across all verticals. A natural mentor, he guides teams and oversees operations with precision, while his passion for sports — basketball, cricket and horse polo — adds to his dynamic persona.' },
+    { name: 'Tannistha Banerjee', role: 'Managing Partner', bio: 'Tannistha brings two decades of industry expertise from Cathay Pacific, SITA, Thomas Cook, Tata Capital and Citius Holidays. Transitioning from operations to sales, she turned challenges into milestones, establishing herself as a strategic leader shaping growth and success.' },
   ],
   intl: ['France', 'Switzerland', 'Germany', 'Netherlands', 'Japan', 'China', 'Australia', 'Jordan', 'Vietnam', 'Almaty', '& more'],
   dom: ['Andaman', 'Mumbai', 'Lakshadweep', 'Goa', 'Ayodhya', 'Rajasthan', 'Kashmir', 'Himachal', 'Shillong', '& more'],
