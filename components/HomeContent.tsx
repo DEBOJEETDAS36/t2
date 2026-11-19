@@ -10,18 +10,11 @@ import { OFFICES } from '@/data/offices'
 import { useEnquiry } from '@/lib/useEnquiry'
 import Link from 'next/link'
 import Packages from './Packages'
-import GlassSelect from './GlassSelect'
 const N = ['Emirates','Singapore Airlines','Marriott','Taj Hotels','Qatar Airways','Hyatt','IndiGo','Accor']
-const DESTINATIONS = ['Anywhere','Bali','Dubai','Japan','Vietnam','Egypt']
-const DURATIONS = ['Any length','4–6 days','7–10 days','11+ days']
-const MONTHS = ['Flexible','November','December','January']
 export default function HomeContent() {
   useSiteEffects()
   const { find, list } = useImages()
   const [hot, setHot] = useState('')
-  const [destination, setDestination] = useState(DESTINATIONS[0])
-  const [duration, setDuration] = useState(DURATIONS[0])
-  const [month, setMonth] = useState(MONTHS[0])
   const logos = list('partners')
   const loop = <T,>(a: T[]) => { const half = Array.from({ length: Math.max(1, Math.ceil(8 / a.length)) }).flatMap(() => a); return [...half, ...half] }
   const enq = useEnquiry('contact',{ extra: { source: 'home page' } })
@@ -43,12 +36,7 @@ export default function HomeContent() {
 </header>
 </div>
 
-<div className="search"><div className="wrap reveal"><div className="bar glass">
-<GlassSelect label="Destination" value={destination} onChange={setDestination} options={DESTINATIONS} />
-<GlassSelect label="Duration" value={duration} onChange={setDuration} options={DURATIONS} />
-<GlassSelect label="Travel month" value={month} onChange={setMonth} options={MONTHS} />
-<a href="#packages" className="btn pri">Search</a>
-</div>
+<div className="search"><div className="wrap reveal">
 <div className="stats">
 <div><b data-c="7.5" data-dec="1">0</b><small>YEARS OF EXPERIENCE</small></div>
 <div><b data-c="50000">0</b><small>HAPPY TRAVELLERS</small></div>
