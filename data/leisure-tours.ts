@@ -196,6 +196,7 @@ export const LEISURE_TOURS: TourData[] = [
   {
     slug: 'mauritius-island-escape',
     name: 'Mauritius Tropical Island Escape',
+    img: ['mauritius'],
     first: 'Tropical Island',
     accent: 'Escape',
     region: 'intl',
@@ -471,6 +472,7 @@ export const LEISURE_TOURS: TourData[] = [
   {
     slug: 'shillong-scotland-of-the-east',
     name: 'Shillong The Scotland of the East',
+    img: ['Shillong'],
     first: 'The Scotland of',
     accent: 'the East',
     region: 'dom',
@@ -744,6 +746,7 @@ export const LEISURE_TOURS: TourData[] = [
   {
     slug: 'goa-sun-sand-coastal-fun',
     name: 'Goa Sun, Sand & Coastal Fun',
+    img: ['Goa'],
     first: 'Sun, Sand &',
     accent: 'Coastal Fun',
     region: 'dom',
@@ -782,6 +785,7 @@ export const LEISURE_TOURS: TourData[] = [
   {
     slug: 'himachal-mountains-valleys',
     name: 'Himachal Mountains, Valleys & Fresh Air',
+    img: ['Himachal'],
     first: 'Mountains, Valleys &',
     accent: 'Fresh Air',
     region: 'dom',
