@@ -721,8 +721,15 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed}
 .abt-event .abt-media{height:220px;transition:border-color .5s,box-shadow .6s}
 .abt-event:hover{transform:translateY(-6px)}
 .pg .abt-event[data-vis]:hover{transform:translateY(-6px)}
+/* Slow entrance: the photo eases out of a soft zoom/blur, then the caption and index drift in. */
+.abt-event .abt-media .pic{opacity:0;transform:scale(1.14);filter:blur(9px);transition:opacity 1.2s var(--ease),transform 1.7s var(--ease),filter 1.4s var(--ease);transition-delay:calc(var(--d,0s) + .12s)}
+.abt-event[data-vis] .abt-media .pic{opacity:1;transform:scale(1);filter:blur(0)}
+.abt-event-idx{opacity:0;transform:translateY(-10px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0s) + .55s)}
+.abt-event[data-vis] .abt-event-idx{opacity:1;transform:none}
+.abt-event figcaption{opacity:0;transform:translateY(12px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0s) + .4s)}
+.abt-event[data-vis] figcaption{opacity:1;transform:none}
 .abt-event:hover .abt-media{border-color:var(--gold);box-shadow:0 26px 52px -28px rgba(255,198,0,.5)}
-.abt-event:hover .abt-media .pic{transform:scale(1.08)}
+.abt-event:hover .abt-media .pic{transform:scale(1.08);transition-delay:0s}
 .abt-event-idx{position:absolute;top:12px;right:14px;z-index:3;font:italic 300 1.5rem/1 var(--serif);color:rgba(255,255,255,.8);text-shadow:0 2px 12px rgba(0,0,0,.35)}
 .abt-event figcaption{display:flex;align-items:center;gap:10px;padding:15px 4px 0;font:400 1.06rem var(--serif)}
 .abt-event figcaption:before{content:"";width:22px;height:1px;flex:none;background:var(--gold);transition:width .5s var(--ease)}
@@ -773,6 +780,10 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed}
 .pg .abt-panel[data-vis],.pg .abt-person[data-vis],.pg .abt-mice-card[data-vis],.pg .abt-event[data-vis],.pg .abt-pillar[data-vis],.pg .abt-office[data-vis]{
   transition:opacity 1s var(--ease) var(--d,0s),transform .7s var(--ease) 0s,box-shadow .7s var(--ease) 0s,border-color .5s
 }
+/* "Stages we've set" — the whole card drifts up a little further and slower than the site default. */
+.pg .abt-events .abt-event.reveal{transform:translateY(38px);transition:opacity 1.4s var(--ease),transform 1.4s var(--ease);transition-delay:var(--d,0s)}
+.pg .abt-events .abt-event.reveal[data-vis]{transform:none;transition:opacity 1.4s var(--ease) var(--d,0s),transform .7s var(--ease) 0s,box-shadow .7s var(--ease) 0s,border-color .5s}
+.pg .abt-events .abt-event.reveal[data-vis]:hover{transform:translateY(-6px)}
 @media(max-width:960px){
 .abt-who,.abt-two,.abt-people,.abt-mice{grid-template-columns:1fr}
 .abt-art{aspect-ratio:16/9}
@@ -814,6 +825,7 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed}
 }
 @media(prefers-reduced-motion:reduce){
 .pg .reveal{opacity:1;transform:none}
+.abt-event .abt-media .pic,.abt-event figcaption,.abt-event-idx{opacity:1;transform:none;filter:none}
 .abt-cue i,.abt-logo-track{animation:none!important}
 .abt-logo-track{width:auto;flex-wrap:wrap;justify-content:center}
 }
