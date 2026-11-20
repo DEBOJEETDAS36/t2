@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useEnquiry } from '@/lib/useEnquiry'
 import { type TourData } from '@/data/tours'
+import { useImages } from './ImagesProvider'
 import Lightbox from './Lightbox'
-const ML: Record<string, string> = { B: 'Breakfast', L: 'Lunch', D: 'Dinner' }
 const Y = [90, 70, 70, 60, 80, 72, 66, 84]
 function Route({ nodes }: { nodes: string[][] }) {
   const n = nodes.length, xs = nodes.map((_, i) => 70 + i * (740 / Math.max(n - 1, 1))), ys = nodes.map((_, i) => Y[i % Y.length])
@@ -22,13 +22,13 @@ function Route({ nodes }: { nodes: string[][] }) {
 }
 export default function TourDetail({ tour: t }: { tour: TourData }) {
   useSiteEffects()
+  const { findAny } = useImages()
+  const heroPic = findAny(t.place, ...(t.img || []))
   const enq = useEnquiry('tour',{ extra: { tour: t.name } })
   const sent = enq.sent
-  const [open, setOpen] = useState<Set<number>>(new Set([1]))
   const [pol, setPol] = useState<Set<number>>(new Set())
   const [lb, setLb] = useState<number | null>(null)
   const flip = (s: Set<number>, k: number) => { const x = new Set(s); x.has(k) ? x.delete(k) : x.add(k); return x }
-  const allOpen = open.size === t.days.length
   useEffect(() => {
     document.body.dataset.cl = 'View'
     return () => { delete document.body.dataset.cl }
@@ -42,23 +42,16 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <h1 className="reveal" style={d('.1s')}>{t.first} <em>{t.accent}</em></h1>
         <p className="reveal" style={d('.2s')}>{t.subtitle}</p>
         <div className="rp reveal" style={d('.3s')}>{t.route.map((r, i) => <span key={r + i} style={{ display: 'contents' }}>{i > 0 && <b>→</b>}<span>{r}</span></span>)}</div>
-        <div className="hg reveal" style={d('.3s')}>{t.heroLabels.map((l, i) => <div key={l + i} className="pimg" data-l={l} role="button" tabIndex={0} onClick={() => setLb(i)} onKeyDown={e => e.key === 'Enter' && setLb(i)} />)}</div>
+        <div className="hg reveal" style={d('.3s')}>{t.heroLabels.map((l, i) => (
+          <div key={l + i} className="pimg" data-l={l} role="button" tabIndex={0} onClick={() => setLb(i)} onKeyDown={e => e.key === 'Enter' && setLb(i)}>{i === 0 && heroPic && <img className="pic" src={heroPic} alt={t.place} loading="eager" decoding="async" />}</div>
+        ))}</div>
         <div className="facts glass reveal">{t.facts.map(([l, v]) => <div key={l}><small>{l}</small><b>{v}</b></div>)}</div>
       </div></header>
       <div className="wrap lay"><div>
         <div className="blk" id="overview" style={{ paddingTop: 44 }}><span className="eyebrow">Overview</span><h2>The road to the <em>roof</em> of the east</h2>
           <p className="lead">{t.overview}</p>
-          <div className="hl">{t.highlights.map(h => <span key={h}>{h}</span>)}</div>
-          <div className="rt2 glass reveal"><Route nodes={t.nodes} /></div></div>
-        <div className="blk" id="plan"><span className="eyebrow">Day by day</span><h2>Your <em>itinerary</em></h2>
-          <button className="xa" onClick={() => setOpen(allOpen ? new Set() : new Set(t.days.map(x => x[0])))}>{allOpen ? 'Collapse all days －' : 'Expand all days ＋'}</button>
-          {t.days.map((x, i) => (
-            <div key={x[0]} className={'dy glass reveal' + (open.has(x[0]) ? ' open' : '')} style={d(`${i * 0.04}s`)}>
-              <button className="dh" onClick={() => setOpen(flip(open, x[0]))}><b>{String(x[0]).padStart(2, '0')}</b><div><small>Day {x[0]}</small><h3>{x[1]}</h3></div>
-                <div className="ml">{['B', 'L', 'D'].map(m => <span key={m} title={ML[m]} className={x[2].includes(m) ? 'on' : ''}>{m}</span>)}</div><i>+</i></button>
-              <div className="db"><div><div className="dc"><div className="pimg" data-l={`Day ${x[0]} image · 900×600`} /><div><p>{x[3]}</p><ul>{x[4].map(b => <li key={b}>{b}</li>)}</ul></div></div></div></div>
-            </div>
-          ))}</div>
+          <div className="rt2 glass reveal"><Route nodes={t.nodes} /></div>
+          <div className="places"><span className="eyebrow">Places to cover</span><div className="hl">{t.highlights.map(h => <span key={h}>{h}</span>)}</div></div></div>
         <div className="blk" id="policy"><span className="eyebrow">Good to know</span><h2>Before you <em>travel</em></h2>
           <div className="faq" style={{ maxWidth: 'none' }}>{t.policies.map((f, i) => (
             <div key={f[0]} className={'q glass reveal' + (pol.has(i) ? ' open' : '')} style={d(`${i * 0.06}s`)}><button onClick={() => setPol(flip(pol, i))}>{f[0]}<span>+</span></button><div className="qa"><div><p>{f[1]}</p></div></div></div>))}</div></div>
@@ -72,7 +65,7 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <input name="phone" className="in" placeholder="Phone number" /><input name="travellers" className="in" placeholder="Number of travellers" />
         <textarea name="message" className="in full" placeholder="Anything we should know — dates, room preferences, special requests" maxLength={1000} />
         <button className="btn pri full" style={{ justifySelf: 'start' }}>{sent ? 'Thank you — we’ll be in touch ✓' : 'Send enquiry'}</button>{enq.err && <p className="ferr full">{enq.err}</p>}</form></div></section>
-      <Lightbox items={t.heroLabels.map((l, i) => ({ label: l, title: t.name, sub: `Photo ${i + 1} of ${t.heroLabels.length}`, a: t.a, b: t.b }))} index={lb} onIndex={setLb} onClose={() => setLb(null)} />
+      <Lightbox items={t.heroLabels.map((l, i) => ({ label: l, title: t.name, sub: `Photo ${i + 1} of ${t.heroLabels.length}`, a: t.a, b: t.b, src: i === 0 ? heroPic ?? undefined : undefined }))} index={lb} onIndex={setLb} onClose={() => setLb(null)} />
       <div className="mb"><a href="#enquire" className="btn pri" style={{ padding: '12px 22px', flex: 1, justifyContent: 'center' }}>Enquire</a></div>
     </div>
   )
