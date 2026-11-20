@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 import Logo from './Logo'
-const L = [['Home', '/'], ['About Us', '/about'], ['Leisure', '/leisure'], ['MICE', '/mice'], ['Blogs', '/blogs'], ['Gallery', '/gallery'], ['Contact', '/contact']]
+const L = [['Home', '/'], ['About Us', '/about'], ['Leisure', '/leisure'], ['Cruise', '/cruise'], ['MICE', '/mice'], ['Blogs', '/blogs'], ['Gallery', '/gallery'], ['Contact', '/contact']]
 export default function Navbar() {
   const p = usePathname()
   const [s, setS] = useState(false)
