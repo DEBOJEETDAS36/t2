@@ -49,13 +49,7 @@ export const TOURS: Record<string, TourData> = {
    "Alleppey",
    "Kovalam"
   ],
-  "heroLabels": [
-   "Hero image · Kerala · 1400×900",
-   "Munnar · 800×500",
-   "Thekkady · 800×500",
-   "Alleppey · 800×500",
-   "Kovalam · 800×500"
-  ],
+  "heroLabels": ["Hero image · Kerala · 1400×900", "Munnar · 800×500", "Thekkady · 800×500"],
   "facts": [
    [
     "Duration",
@@ -274,13 +268,7 @@ export const TOURS: Record<string, TourData> = {
    "Udaipur",
    "Delhi"
   ],
-  "heroLabels": [
-   "Hero image · Rajasthan · 1400×900",
-   "Jaipur · 800×500",
-   "Jodhpur · 800×500",
-   "Udaipur · 800×500",
-   "Delhi · 800×500"
-  ],
+  "heroLabels": ["Hero image · Rajasthan · 1400×900", "Jaipur · 800×500", "Jodhpur · 800×500"],
   "facts": [
    [
     "Duration",
@@ -516,13 +504,7 @@ export const TOURS: Record<string, TourData> = {
    "Pangong",
    "Leh"
   ],
-  "heroLabels": [
-   "Hero image · Ladakh · 1400×900",
-   "Leh · 800×500",
-   "Nubra · 800×500",
-   "Pangong · 800×500",
-   "Leh · 800×500"
-  ],
+  "heroLabels": ["Hero image · Ladakh · 1400×900", "Leh · 800×500", "Nubra · 800×500"],
   "facts": [
    [
     "Duration",
@@ -744,13 +726,7 @@ export const TOURS: Record<string, TourData> = {
    "Tawang",
    "Shergaon"
   ],
-  "heroLabels": [
-   "Hero image · Tawang Monastery · 1400×900",
-   "Sela Pass · 800×500",
-   "PTSO Lake · 800×500",
-   "Mandala Top · 800×500",
-   "Bum La Pass · 800×500"
-  ],
+  "heroLabels": ["Hero image · Tawang Monastery · 1400×900", "Sela Pass · 800×500", "PTSO Lake · 800×500"],
   "facts": [
    [
     "Duration",
@@ -1019,13 +995,7 @@ export const TOURS: Record<string, TourData> = {
    "North Goa",
    "South Goa"
   ],
-  "heroLabels": [
-   "Hero image · Goa · 1400×900",
-   "North Goa · 800×500",
-   "South Goa · 800×500",
-   "North Goa · 800×500",
-   "South Goa · 800×500"
-  ],
+  "heroLabels": ["Hero image · Goa · 1400×900", "North Goa · 800×500", "South Goa · 800×500"],
   "facts": [
    [
     "Duration",
@@ -1197,13 +1167,7 @@ export const TOURS: Record<string, TourData> = {
    "Havelock",
    "Port Blair"
   ],
-  "heroLabels": [
-   "Hero image · Andaman · 1400×900",
-   "Port Blair · 800×500",
-   "Havelock · 800×500",
-   "Port Blair · 800×500",
-   "Port Blair · 800×500"
-  ],
+  "heroLabels": ["Hero image · Andaman · 1400×900", "Port Blair · 800×500", "Havelock · 800×500"],
   "facts": [
    [
     "Duration",
@@ -1406,13 +1370,7 @@ export const TOURS: Record<string, TourData> = {
    "Gangtok",
    "Darjeeling"
   ],
-  "heroLabels": [
-   "Hero image · Darjeeling & Sikkim · 1400×900",
-   "Gangtok · 800×500",
-   "Darjeeling · 800×500",
-   "Gangtok · 800×500",
-   "Darjeeling · 800×500"
-  ],
+  "heroLabels": ["Hero image · Darjeeling & Sikkim · 1400×900", "Gangtok · 800×500", "Darjeeling · 800×500"],
   "facts": [
    [
     "Duration",
@@ -1616,13 +1574,7 @@ export const TOURS: Record<string, TourData> = {
    "Pahalgam",
    "Srinagar"
   ],
-  "heroLabels": [
-   "Hero image · Kashmir · 1400×900",
-   "Srinagar · 800×500",
-   "Gulmarg · 800×500",
-   "Pahalgam · 800×500",
-   "Srinagar · 800×500"
-  ],
+  "heroLabels": ["Hero image · Kashmir · 1400×900", "Srinagar · 800×500", "Gulmarg · 800×500"],
   "facts": [
    [
     "Duration",
@@ -1837,13 +1789,7 @@ export const TOURS: Record<string, TourData> = {
    "Manali",
    "Chandigarh"
   ],
-  "heroLabels": [
-   "Hero image · Himachal · 1400×900",
-   "Shimla · 800×500",
-   "Manali · 800×500",
-   "Chandigarh · 800×500",
-   "Shimla · 800×500"
-  ],
+  "heroLabels": ["Hero image · Himachal · 1400×900", "Shimla · 800×500", "Manali · 800×500"],
   "facts": [
    [
     "Duration",
@@ -2056,13 +2002,7 @@ export const TOURS: Record<string, TourData> = {
    "Corbett",
    "Ranthambore"
   ],
-  "heroLabels": [
-   "Hero image · Wildlife circuit · 1400×900",
-   "Corbett · 800×500",
-   "Ranthambore · 800×500",
-   "Corbett · 800×500",
-   "Ranthambore · 800×500"
-  ],
+  "heroLabels": ["Hero image · Wildlife circuit · 1400×900", "Corbett · 800×500", "Ranthambore · 800×500"],
   "facts": [
    [
     "Duration",
@@ -2241,13 +2181,7 @@ export const TOURS: Record<string, TourData> = {
    "Ubud",
    "Uluwatu"
   ],
-  "heroLabels": [
-   "Hero image · Indonesia · 1400×900",
-   "Ubud · 800×500",
-   "Uluwatu · 800×500",
-   "Ubud · 800×500",
-   "Uluwatu · 800×500"
-  ],
+  "heroLabels": ["Hero image · Indonesia · 1400×900", "Ubud · 800×500", "Uluwatu · 800×500"],
   "facts": [
    [
     "Duration",
@@ -2443,13 +2377,7 @@ export const TOURS: Record<string, TourData> = {
    "Dubai",
    "Abu Dhabi"
   ],
-  "heroLabels": [
-   "Hero image · UAE · 1400×900",
-   "Dubai · 800×500",
-   "Abu Dhabi · 800×500",
-   "Dubai · 800×500",
-   "Abu Dhabi · 800×500"
-  ],
+  "heroLabels": ["Hero image · UAE · 1400×900", "Dubai · 800×500", "Abu Dhabi · 800×500"],
   "facts": [
    [
     "Duration",
@@ -2634,13 +2562,7 @@ export const TOURS: Record<string, TourData> = {
    "Phuket",
    "Krabi"
   ],
-  "heroLabels": [
-   "Hero image · Thailand · 1400×900",
-   "Phuket · 800×500",
-   "Krabi · 800×500",
-   "Phuket · 800×500",
-   "Krabi · 800×500"
-  ],
+  "heroLabels": ["Hero image · Thailand · 1400×900", "Phuket · 800×500", "Krabi · 800×500"],
   "facts": [
    [
     "Duration",
@@ -2836,13 +2758,7 @@ export const TOURS: Record<string, TourData> = {
   "route": [
    "Overwater villa resort"
   ],
-  "heroLabels": [
-   "Hero image · Maldives · 1400×900",
-   "Overwater villa resort · 800×500",
-   "Overwater villa resort · 800×500",
-   "Overwater villa resort · 800×500",
-   "Overwater villa resort · 800×500"
-  ],
+  "heroLabels": ["Hero image · Maldives · 1400×900", "Overwater villa resort · 800×500", "Overwater villa resort · 800×500"],
   "facts": [
    [
     "Duration",
@@ -3017,13 +2933,7 @@ export const TOURS: Record<string, TourData> = {
    "Kyoto",
    "Osaka"
   ],
-  "heroLabels": [
-   "Hero image · Japan · 1400×900",
-   "Tokyo · 800×500",
-   "Hakone · 800×500",
-   "Kyoto · 800×500",
-   "Osaka · 800×500"
-  ],
+  "heroLabels": ["Hero image · Japan · 1400×900", "Tokyo · 800×500", "Hakone · 800×500"],
   "facts": [
    [
     "Duration",
@@ -3273,13 +3183,7 @@ export const TOURS: Record<string, TourData> = {
    "Hoi An",
    "Ho Chi Minh City"
   ],
-  "heroLabels": [
-   "Hero image · Vietnam · 1400×900",
-   "Hanoi · 800×500",
-   "Halong Bay · 800×500",
-   "Hoi An · 800×500",
-   "Ho Chi Minh City · 800×500"
-  ],
+  "heroLabels": ["Hero image · Vietnam · 1400×900", "Hanoi · 800×500", "Halong Bay · 800×500"],
   "facts": [
    [
     "Duration",
@@ -3510,13 +3414,7 @@ export const TOURS: Record<string, TourData> = {
    "Interlaken",
    "Zurich"
   ],
-  "heroLabels": [
-   "Hero image · Europe · 1400×900",
-   "Paris · 800×500",
-   "Lucerne · 800×500",
-   "Interlaken · 800×500",
-   "Zurich · 800×500"
-  ],
+  "heroLabels": ["Hero image · Europe · 1400×900", "Paris · 800×500", "Lucerne · 800×500"],
   "facts": [
    [
     "Duration",
@@ -3757,13 +3655,7 @@ export const TOURS: Record<string, TourData> = {
    "Luxor",
    "Cairo"
   ],
-  "heroLabels": [
-   "Hero image · Egypt · 1400×900",
-   "Cairo · 800×500",
-   "Aswan · 800×500",
-   "Nile cruise · 800×500",
-   "Luxor · 800×500"
-  ],
+  "heroLabels": ["Hero image · Egypt · 1400×900", "Cairo · 800×500", "Aswan · 800×500"],
   "facts": [
    [
     "Duration",
@@ -4048,13 +3940,7 @@ export const TOURS: Record<string, TourData> = {
    "Queenstown",
    "Christchurch"
   ],
-  "heroLabels": [
-   "Hero image · New Zealand · 1400×900",
-   "Auckland · 800×500",
-   "Rotorua · 800×500",
-   "Queenstown · 800×500",
-   "Christchurch · 800×500"
-  ],
+  "heroLabels": ["Hero image · New Zealand · 1400×900", "Auckland · 800×500", "Rotorua · 800×500"],
   "facts": [
    [
     "Duration",
@@ -4315,13 +4201,7 @@ export const TOURS: Record<string, TourData> = {
    "Masai Mara",
    "Nairobi"
   ],
-  "heroLabels": [
-   "Hero image · Kenya · 1400×900",
-   "Nairobi · 800×500",
-   "Lake Nakuru · 800×500",
-   "Masai Mara · 800×500",
-   "Nairobi · 800×500"
-  ],
+  "heroLabels": ["Hero image · Kenya · 1400×900", "Nairobi · 800×500", "Lake Nakuru · 800×500"],
   "facts": [
    [
     "Duration",
@@ -4550,7 +4430,7 @@ const placeholderTour = (d: PlaceholderDest): TourData => ({
   tags: [['New', 'teal'], ['Customisable', 'teal']],
   subtitle: d.desc,
   route: [d.place],
-  heroLabels: [`Hero image · ${d.place} · 1400×900`, `${d.place} · 800×500`, `${d.place} · 800×500`, `${d.place} · 800×500`, `${d.place} · 800×500`],
+  "heroLabels": [`Hero image · ${d.place} · 1400×900`, `${d.place} · 800×500`, `${d.place} · 800×500`],
   facts: [
     ['Duration', '5N / 6D'],
     ['Departures', 'Flexible dates'],

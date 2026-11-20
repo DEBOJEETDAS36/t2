@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useEnquiry } from '@/lib/useEnquiry'
-import { LEISURE_TOURS } from '@/data/leisure-tours'
 import { type TourData } from '@/data/tours'
 import Lightbox from './Lightbox'
-const LC: Record<string, string> = { Bestseller: '', New: 'teal', 'Few seats left': 'red', 'Honeymoon pick': 'pink', 'Group departure': 'blue', 'Family favourite': 'green' }
 const ML: Record<string, string> = { B: 'Breakfast', L: 'Lunch', D: 'Dinner' }
 const Y = [90, 70, 70, 60, 80, 72, 66, 84]
 function Route({ nodes }: { nodes: string[][] }) {
@@ -35,7 +33,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
     document.body.dataset.cl = 'View'
     return () => { delete document.body.dataset.cl }
   }, [])
-  const related = [...LEISURE_TOURS.filter(x => x.slug !== t.slug && x.region === t.region), ...LEISURE_TOURS.filter(x => x.slug !== t.slug && x.region !== t.region)].slice(0, 3)
   const d = (s: string) => ({ '--d': s }) as React.CSSProperties
   return (
     <div className="pg tourpg">
@@ -62,13 +59,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
               <div className="db"><div><div className="dc"><div className="pimg" data-l={`Day ${x[0]} image · 900×600`} /><div><p>{x[3]}</p><ul>{x[4].map(b => <li key={b}>{b}</li>)}</ul></div></div></div></div>
             </div>
           ))}</div>
-        <div className="blk" id="stay"><span className="eyebrow">Where you’ll stay</span><h2>Handpicked <em>stays</em></h2><p className="lead" style={{ marginBottom: 28 }}>Comfortable cottages, hotels and local homestays — or similar standard.</p>
-          <div className="g3" style={{ gridTemplateColumns: 'repeat(2,1fr)' }}>{t.stays.map((s, i) => (
-            <div key={i} className="post glass reveal" style={d(`${i * 0.06}s`)}><div className="img" style={{ '--a': s[3], '--b': s[4] } as React.CSSProperties}><div className="pimg" data-l="Property image · 800×500" /><span className="rg">{s[2]}</span></div>
-              <div className="pt"><div className="mt"><b>{s[1]}</b></div><h3>{s[0]}</h3><p>Or similar standard · twin sharing</p></div></div>))}</div></div>
-        <div className="blk" id="inc"><span className="eyebrow">What’s covered</span><h2>Inclusions &amp; <em>exclusions</em></h2><div className="ie">
-          <div className="glass reveal"><h3>Included</h3><ul>{t.included.map(x => <li key={x}>{x}</li>)}</ul></div>
-          <div className="glass x reveal" style={d('.1s')}><h3>Not included</h3><ul>{t.excluded.map(x => <li key={x}>{x}</li>)}</ul></div></div></div>
         <div className="blk" id="policy"><span className="eyebrow">Good to know</span><h2>Before you <em>travel</em></h2>
           <div className="faq" style={{ maxWidth: 'none' }}>{t.policies.map((f, i) => (
             <div key={f[0]} className={'q glass reveal' + (pol.has(i) ? ' open' : '')} style={d(`${i * 0.06}s`)}><button onClick={() => setPol(flip(pol, i))}>{f[0]}<span>+</span></button><div className="qa"><div><p>{f[1]}</p></div></div></div>))}</div></div>
@@ -76,10 +66,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
       <aside className="bk glass reveal"><div><small>{t.fixed ? `Fixed departure · ${t.departure}` : t.departure}</small></div>
         <ul>{t.perks.map(p => <li key={p}>{p}</li>)}</ul>
         <a href="#enquire" className="btn pri">Enquire about this tour →</a></aside></div>
-      <section className="alt"><div className="wrap"><div className="head reveal"><div><span className="eyebrow">You may also like</span><h2>More <em>journeys</em></h2></div><Link href="/leisure" className="btn gh">All tours</Link></div>
-        <div className="g3">{related.map((x, i) => (
-          <Link key={x.slug} href={`/leisure/${x.slug}`} className="post glass reveal" style={d(`${i * 0.08}s`)}><div className="img" style={{ '--a': x.a, '--b': x.b } as React.CSSProperties}><div className="pimg" data-l="Tour image · 800×500" />{x.label && <span className={'lbl ' + LC[x.label]}>{x.label}</span>}<span className="rg">{x.region === 'dom' ? 'Domestic' : 'International'}</span></div>
-            <div className="pt"><div className="mt"><b>{x.place}</b><span>{x.days.length} days / {x.days.length - 1} nights</span></div><h3>{x.name}</h3><div className="tf"><span className="rt">★ {x.rating}</span></div><span className="rd">View itinerary →</span></div></Link>))}</div></div></section>
       <section id="enquire" style={{ scrollMarginTop: 70 }}><div className="wrap"><form className="cf glass reveal" onSubmit={enq.onSubmit}>
         <div className="full"><span className="eyebrow">Reserve your seat</span><h2>Enquire about <em>{t.name}</em></h2></div>
         <input name="name" className="in" placeholder="Full name" required /><input name="email" className="in" type="email" placeholder="Email address" required />
