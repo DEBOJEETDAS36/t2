@@ -73,7 +73,7 @@ export const ABOUT = {
     ['Bengaluru', 'Branch office · Karnataka', '62/1, New No. 71, 1st Cross, 2nd Main, Ganganagar, Ganga Nagar Extension, Bengaluru, Karnataka, 560032', false],
     ['Guwahati', 'Branch office · Assam', 'Near Netaji Apartment, 1st Floor, B.K. Arcade, Lokhra Road, Guwahati, Assam, 781034', false],
     ['Noida', 'Branch office · Uttar Pradesh', 'Plot No-A4, B-320, Logix Technova Road, Sector 132, Gautam Buddh Nagar, Noida, Uttar Pradesh, 201301', false],
-    ['Hyderabad', 'Branch office · Telangana', 'Building No. H5/497, Near Hi-Tech City, Izzath Nagar, Kondapur, Hyderabad, 500084', false],
+    ['Hyderabad', 'Branch office · Telangana', 'Building No. H NO 5/497, Near Hi-Tech City, Izzath Nagar, Kondapur, Hyderabad, 500084', false],
     ['Kochi', 'Branch office · Kerala', 'Suite F6, LR Tower, 39/2475-B1, South Janatha Road, Palarivattom, Kochi, Ernakulam, Kerala – 682025', false],
   ] as [string, string, string, boolean][],
   // [email, phone] — paired per person
