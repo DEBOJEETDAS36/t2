@@ -15,6 +15,7 @@ Rebuild (or restart `npm run dev`) after adding files.
 | Destination tiles | `destinations/southeast-asia.jpg`, `dubai.jpg`, `italy.jpg`, `kerala.jpg`, `south-africa.jpg` | The big first tile is southeast-asia (about 900 × 700). |
 | Blog cards | `blogs/bali-beyond-the-beaches.jpg`, `japan-in-autumn.jpg`, `planning-an-egypt-cruise.jpg` | About 800 × 500. |
 | Leisure page — flights section | `flights/flight-hero.jpg` (any file named `flight.*` also works) | Landscape, about 1000 × 700. Shown behind the boarding-pass card. |
+| Leisure page — travel insurance section | `insurance/insurance-hero.jpg` (any file named `insurance.*` also works) | Landscape, about 1000 × 700. Shown behind the coverage summary card. |
 | Testimonial photos | `testimonials/ananya-sen.jpg`, `rohan-mehta.jpg`, `priya-das.jpg` | Square, about 200 × 200. |
 
 All tour slugs (for future use): kerala-backwaters-hills, royal-rajasthan, magical-ladakh, amazing-arunachal, goa-beach-escape, andaman-island-hopping, darjeeling-sikkim, kashmir-paradise, himachal-highlands, corbett-ranthambore-safari, bali-nusa-penida, dubai-abu-dhabi, thailand-island-trails, maldives-overwater-bliss, blissful-japan, vietnam-unfolded, swiss-alps-paris, jewel-of-the-nile, scenic-new-zealand, kenya-safari
