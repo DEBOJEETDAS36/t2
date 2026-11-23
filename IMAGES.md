@@ -16,6 +16,9 @@ Rebuild (or restart `npm run dev`) after adding files.
 | Blog cards | `blogs/bali-beyond-the-beaches.jpg`, `japan-in-autumn.jpg`, `planning-an-egypt-cruise.jpg` | About 800 × 500. |
 | Leisure page — flights section | `flights/flight-hero.jpg` (any file named `flight.*` also works) | Landscape, about 1000 × 700. Shown behind the boarding-pass card. |
 | Leisure page — travel insurance section | `insurance/insurance-hero.jpg` (any file named `insurance.*` also works) | Landscape, about 1000 × 700. Shown behind the coverage summary card. |
+| Cruise page — hero | `cruise/hero.jpg` | Landscape, about 2400 × 1000. Shown behind the hero headline. |
+| Cruise page — cruise lines | `cruise/cordelia-cruise.jpg`, `royal-caribbean.jpg`, `singapore-dream-cruise.jpg`, `disney-cruise.jpg`, `norwegian-cruise-line.jpg`, `costa-cruise.jpg` | About 800 × 500. Optional line logos: `cruise/logo-<line-slug>.png` (for example `cruise/logo-royal-caribbean.png`). |
+| Cruise page — destinations | `cruise/dest-singapore.jpg`, `dest-dubai.jpg`, `dest-mediterranean.jpg`, `dest-europe.jpg`, `dest-alaska.jpg`, `dest-caribbean.jpg`, `dest-river-cruises.jpg`, `dest-coastal-cruises.jpg` | About 800 × 600. |
 | Testimonial photos | `testimonials/ananya-sen.jpg`, `rohan-mehta.jpg`, `priya-das.jpg` | Square, about 200 × 200. |
 
 All tour slugs (for future use): kerala-backwaters-hills, royal-rajasthan, magical-ladakh, amazing-arunachal, goa-beach-escape, andaman-island-hopping, darjeeling-sikkim, kashmir-paradise, himachal-highlands, corbett-ranthambore-safari, bali-nusa-penida, dubai-abu-dhabi, thailand-island-trails, maldives-overwater-bliss, blissful-japan, vietnam-unfolded, swiss-alps-paris, jewel-of-the-nile, scenic-new-zealand, kenya-safari

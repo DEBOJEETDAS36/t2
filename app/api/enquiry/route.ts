@@ -3,7 +3,7 @@ import { addEnquiry } from '@/lib/store'
 import { attempts, addAttempt, ipOf } from '@/lib/rate'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
-const TYPES = ['contact', 'tour', 'mice', 'newsletter']
+const TYPES = ['contact', 'tour', 'mice', 'cruise', 'newsletter']
 const cap = (v: unknown, n: number) => (typeof v === 'string' ? v.trim().slice(0, n) : '')
 export async function POST(req: Request) {
   const ip = ipOf(req)

@@ -2,8 +2,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Enquiry, Status } from '@/lib/store'
-const TYPES = [['all', 'All'], ['contact', 'General'], ['tour', 'Tours'], ['mice', 'MICE'], ['newsletter', 'Newsletter']]
-const LBL: Record<string, string> = { contact: 'General', tour: 'Tour', mice: 'MICE', newsletter: 'Newsletter' }
+const TYPES = [['all', 'All'], ['contact', 'General'], ['tour', 'Tours'], ['mice', 'MICE'], ['cruise', 'Cruises'], ['newsletter', 'Newsletter']]
+const LBL: Record<string, string> = { contact: 'General', tour: 'Tour', mice: 'MICE', cruise: 'Cruise', newsletter: 'Newsletter' }
 const fmt = (s: string) => new Date(s).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })
 export default function Dashboard() {
   const r = useRouter()
