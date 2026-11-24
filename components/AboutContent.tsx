@@ -93,11 +93,11 @@ export default function AboutContent() {
             ))}
           </div>
           <div className="abt-mosaic reveal" style={d('.1s')}>
-            <div className="abt-media abt-mosaic-main"><Ph name="about/team-1" label="Team Bents · 1200×800" /></div>
-            <div className="abt-media"><Ph name="about/team-2" label="Team · 600×400" /></div>
-            <div className="abt-media"><Ph name="about/team-3" label="Team · 600×400" /></div>
-            <div className="abt-media"><Ph name="about/team-4" label="Team · 600×400" /></div>
-            <div className="abt-media"><Ph name="about/team-5" label="Team · 600×400" /></div>
+            <div className="abt-media abt-mosaic-main"><Ph name="about/team1" label="Team Bents · 1200×800" /></div>
+            <div className="abt-media"><Ph name="about/team2" label="Team · 600×400" /></div>
+            <div className="abt-media"><Ph name="about/team3" label="Team · 600×400" /></div>
+            <div className="abt-media"><Ph name="about/team4" label="Team · 600×400" /></div>
+            <div className="abt-media"><Ph name="about/team5" label="Team · 600×400" /></div>
           </div>
         </div>
       </section>

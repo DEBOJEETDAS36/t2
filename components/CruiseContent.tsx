@@ -5,7 +5,7 @@ import { useSiteEffects } from '@/lib/useSiteEffects'
 import { useEnquiry } from '@/lib/useEnquiry'
 import { useImages } from './ImagesProvider'
 import Pic from './Pic'
-import { CRUISE as C, slug } from '@/data/cruises'
+import { CRUISE as C, slug } from '../data/cruises'
 import { ABOUT } from '@/data/about'
 
 // A picture slot: shows public/images/<name>.<ext> if it exists, otherwise a dashed placeholder with the size to use.
@@ -29,6 +29,7 @@ export default function CruiseContent() {
   const [open, setOpen] = useState<number | null>(0)
   const [line, setLine] = useState('')
   const [dest, setDest] = useState('')
+  const contact = ABOUT.contacts[0] ?? ['', '']
   const d = (s: string) => ({ '--d': s }) as React.CSSProperties
   const toForm = () => document.getElementById('plan')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   const pickLine = (n: string) => { setLine(n); toForm() }
@@ -66,15 +67,19 @@ export default function CruiseContent() {
       {/* CRUISE LINES */}
       <section className="cr-sec" id="lines"><div className="wrap">
         <div className="head reveal"><div><span className="eyebrow">Cruise lines</span><h2>Sail with the <em>best</em></h2></div><p className="sub">Tell us the line you have in mind, or let us recommend one for you.</p></div>
-        <div className="g3">{C.lines.map((l, i) => (
-          <div key={l[0]} className="post glass reveal" style={d(`${(i % 3) * 0.08}s`)}>
-            <div className="img" style={{ '--a': l[2], '--b': l[3] } as React.CSSProperties}>
-              <Slot name={`cruise/${slug(l[0])}`} label="Cruise photo · 800×500" alt={l[0]} />
-              <span className="rg">{l[1]}</span>
-              {find(`cruise/logo-${slug(l[0])}`) && <span className="cr-lg"><img src={find(`cruise/logo-${slug(l[0])}`) as string} alt={`${l[0]} logo`} loading="lazy" /></span>}
+        <div className="g3">{C.lines.map((l, i) => {
+          const logo = find(`cruise/logo-${slug(l[0])}`)
+          return (
+            <div key={l[0]} className="post glass reveal" style={d(`${(i % 3) * 0.08}s`)}>
+              <div className="img" style={{ '--a': l[2], '--b': l[3] } as React.CSSProperties}>
+                <Slot name={`cruise/${slug(l[0])}`} label="Cruise photo · 800×500" alt={l[0]} />
+                <span className="rg">{l[1]}</span>
+                {logo && <span className="cr-lg"><img src={logo} alt={`${l[0]} logo`} loading="lazy" /></span>}
+              </div>
+              <div className="pt"><h3>{l[0]}</h3><button type="button" className="rd cr-rd" onClick={() => pickLine(l[0])}>Enquire about this cruise →</button></div>
             </div>
-            <div className="pt"><h3>{l[0]}</h3><button type="button" className="rd cr-rd" onClick={() => pickLine(l[0])}>Enquire about this cruise →</button></div>
-          </div>))}</div>
+          )
+        })}</div>
       </div></section>
 
       {/* DESTINATIONS */}
@@ -107,8 +112,8 @@ export default function CruiseContent() {
           {enq.err && <p className="ferr full">{enq.err}</p>}
         </form>
         <div className="ci reveal" style={d('.15s')}>
-          <div className="c glass"><i>✆</i><div><small>Call us</small><b><a href={`tel:${ABOUT.contacts[0][1].replace(/\s/g, '')}`}>{ABOUT.contacts[0][1]}</a></b></div></div>
-          <div className="c glass"><i>✉</i><div><small>Email</small><b><a href={`mailto:${ABOUT.contacts[0][0]}`}>{ABOUT.contacts[0][0]}</a></b></div></div>
+          <div className="c glass"><i>✆</i><div><small>Call us</small><b><a href={`tel:${contact[1].replace(/\s/g, '')}`}>{contact[1]}</a></b></div></div>
+          <div className="c glass"><i>✉</i><div><small>Email</small><b><a href={`mailto:${contact[0]}`}>{contact[0]}</a></b></div></div>
           <div className="cr-note glass"><h3>Not sure where to start?</h3><p>Share your preferences, budget and travel requirements — we’ll help you choose the cruise experience that fits.</p></div>
         </div>
       </div></section>

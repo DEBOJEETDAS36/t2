@@ -14,8 +14,8 @@ Rebuild (or restart `npm run dev`) after adding files.
 | Package cards (home) | `tours/<tour-slug>.jpg` | About 800 × 500. Slugs for the home page: bali-nusa-penida, dubai-abu-dhabi, blissful-japan, vietnam-unfolded, jewel-of-the-nile, scenic-new-zealand |
 | Destination tiles | `destinations/southeast-asia.jpg`, `dubai.jpg`, `italy.jpg`, `kerala.jpg`, `south-africa.jpg` | The big first tile is southeast-asia (about 900 × 700). |
 | Blog cards | `blogs/bali-beyond-the-beaches.jpg`, `japan-in-autumn.jpg`, `planning-an-egypt-cruise.jpg` | About 800 × 500. |
-| Leisure page — flights section | `flights/flight-hero.jpg` (any file named `flight.*` also works) | Landscape, about 1000 × 700. Shown behind the boarding-pass card. |
-| Leisure page — travel insurance section | `insurance/insurance-hero.jpg` (any file named `insurance.*` also works) | Landscape, about 1000 × 700. Shown behind the coverage summary card. |
+| More page — flights section | `flights/flight-hero.jpg` (any file named `flight.*` also works) | Landscape, about 1000 × 700. Shown behind the boarding-pass card. |
+| More page — travel insurance section | `insurance/insurance-hero.jpg` (any file named `insurance.*` also works) | Landscape, about 1000 × 700. Shown behind the coverage summary card. |
 | Cruise page — hero | `cruise/hero.jpg` | Landscape, about 2400 × 1000. Shown behind the hero headline. |
 | Cruise page — cruise lines | `cruise/cordelia-cruise.jpg`, `royal-caribbean.jpg`, `singapore-dream-cruise.jpg`, `disney-cruise.jpg`, `norwegian-cruise-line.jpg`, `costa-cruise.jpg` | About 800 × 500. Optional line logos: `cruise/logo-<line-slug>.png` (for example `cruise/logo-royal-caribbean.png`). |
 | Cruise page — destinations | `cruise/dest-singapore.jpg`, `dest-dubai.jpg`, `dest-mediterranean.jpg`, `dest-europe.jpg`, `dest-alaska.jpg`, `dest-caribbean.jpg`, `dest-river-cruises.jpg`, `dest-coastal-cruises.jpg` | About 800 × 600. |
