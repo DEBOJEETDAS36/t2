@@ -51,20 +51,24 @@ const IN_ICONS: Record<string, React.ReactNode> = {
   help: <><path d="M4 14v-2a8 8 0 0 1 16 0v2" /><rect x="2" y="14" width="4" height="6" rx="2" /><rect x="18" y="14" width="4" height="6" rx="2" /><path d="M20 20a4 4 0 0 1-4 3h-2" /></>,
 }
 const VISA: [string, string, string][] = [
-  ['Tourist Visas', 'Short-stay visas for holidays, family visits and sightseeing, with a checklist tailored to your destination.', 'tourist'],
-  ['Business Visas', 'Support for conference, meeting and corporate travel visas, including invitation-letter guidance.', 'business'],
-  ['Student & Work Visas', 'Guidance on study, internship and work-permit applications with time-sensitive document planning.', 'student'],
-  ['Transit & Multi-entry', 'Transit visas and multi-entry applications for multi-country itineraries and frequent travellers.', 'transit'],
-  ['Documentation Review', 'Form checks, photo and financial-document guidance, and appointment preparation before you submit.', 'docs'],
-  ['Application Tracking', 'Clear timelines, status updates and reminders so you never miss a biometric or interview date.', 'track'],
+  ['Tourist Visa Assistance', 'Guidance and application support for tourist visas to various international destinations.', 'tourist'],
+  ['Visa Documentation', 'Assistance with preparing application forms, photographs, financial documents, hotel bookings, flight itineraries and other required paperwork.', 'docs'],
+  ['Visa Appointment Assistance', 'Guidance with visa appointment scheduling and biometric procedures, wherever applicable.', 'appt'],
+  ['Embassy & Consulate Guidelines', 'Information on country-specific visa requirements, processing procedures and documentation.', 'embassy'],
+  ['E-Visa & Visa on Arrival', 'Assistance with online visa applications and information on visa-on-arrival facilities for eligible destinations.', 'evisa'],
+  ['Group Visa Assistance', 'Coordinated visa application support for families, corporate travellers and group tour participants.', 'group'],
+  ['Visa Application Tracking', 'Assistance in tracking application status and providing updates wherever available.', 'track'],
+  ['Pre-Departure Guidance', 'Information on visa validity, entry requirements, permitted stay and other important travel regulations.', 'depart'],
 ]
 const VISA_ICONS: Record<string, React.ReactNode> = {
   tourist: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" /></>,
-  business: <><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /><path d="M3 12h18" /></>,
-  student: <><path d="m12 4 9 4-9 4-9-4 9-4z" /><path d="M6 10v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4" /><path d="M21 8v5" /></>,
-  transit: <><path d="m17 2 4 4-4 4" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><path d="m7 22-4-4 4-4" /><path d="M21 13v2a4 4 0 0 1-4 4H3" /></>,
   docs: <><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" /><path d="M14 3v5h5" /><path d="m9 14 2 2 4-4" /></>,
+  appt: <><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 11h18" /><path d="m9 16 2 2 4-4" /></>,
+  embassy: <><path d="M3 21h18" /><path d="M5 21V10l7-5 7 5v11" /><path d="M9 21v-6h6v6" /></>,
+  evisa: <><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M8 21h8M12 18v3" /><path d="m9 11 2 2 4-4" /></>,
+  group: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.9" /><path d="M16 3.1a4 4 0 0 1 0 7.8" /></>,
   track: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
+  depart: <><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></>,
 }
 const PASSPORT: [string, string, string][] = [
   ['Fresh Applications', 'First-time passport applications with form filling, document checks and appointment guidance.', 'fresh'],
@@ -169,14 +173,14 @@ export default function MoreContent() {
               <span className="eyebrow">Visa Services</span>
               <h2>Visas, without the <em>guesswork</em></h2>
             </div>
-            <p className="sub">Clear guidance on tourist, business, student and transit visas — from the first checklist to appointment day, for destinations across the world.</p>
+            <p className="sub">Comprehensive visa assistance for international travellers — from understanding requirements and preparing documentation to appointments and pre-departure guidance.</p>
           </div>
 
           <div className="sv-feature">
             <div className="sv-copy reveal">
               <span className="eyebrow">Visa assistance</span>
               <h3>Paperwork, prepared <em>properly</em></h3>
-              <p>Visa rules change by destination and passport. Our team builds your file around the latest requirements and keeps you informed at every stage.</p>
+              <p>We provide comprehensive visa assistance services for international travellers, helping our guests navigate the visa application process smoothly and conveniently. From understanding visa requirements to preparing the necessary documentation, our team offers guidance at every step to make international travel planning hassle-free.</p>
               <ul className="fl-points">
                 <li>Destination-specific document checklists</li>
                 <li>Forms, photos and financial-document review</li>
@@ -195,6 +199,7 @@ export default function MoreContent() {
             </div>
           </div>
 
+          <span className="eyebrow reveal" style={{ display: 'block', marginBottom: 18 }}>Our services include</span>
           <div className="fl-grid">
             {VISA.map(([t, p, ic], i) => (
               <article key={t} className="fl-card glass reveal" style={{ '--d': `${i * 0.06}s` } as React.CSSProperties}>

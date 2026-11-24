@@ -7,19 +7,6 @@ import { useEnquiry } from '@/lib/useEnquiry'
 import { type TourData } from '@/data/tours'
 import { useImages } from './ImagesProvider'
 import Lightbox from './Lightbox'
-const Y = [90, 70, 70, 60, 80, 72, 66, 84]
-function Route({ nodes }: { nodes: string[][] }) {
-  const n = nodes.length, xs = nodes.map((_, i) => 70 + i * (740 / Math.max(n - 1, 1))), ys = nodes.map((_, i) => Y[i % Y.length])
-  let d = `M${xs[0]} ${ys[0]}`
-  for (let i = 1; i < n; i++) { const m = (xs[i - 1] + xs[i]) / 2; d += ` C${m} ${ys[i - 1]} ${m} ${ys[i]} ${xs[i]} ${ys[i]}` }
-  return (
-    <svg viewBox="0 0 880 150"><path className="rpath" pathLength={1} d={d} />
-      {nodes.map(([p, nt], i) => (
-        <g className="rn" key={i}><circle cx={xs[i]} cy={ys[i]} r="7" style={{ transitionDelay: `${0.2 + i * 0.65}s` }} /><text x={xs[i]} y={ys[i] + 32}>{p}</text><text className="n" x={xs[i]} y={ys[i] + 48}>{nt}</text></g>
-      ))}
-    </svg>
-  )
-}
 export default function TourDetail({ tour: t }: { tour: TourData }) {
   useSiteEffects()
   const { findAny } = useImages()
@@ -50,7 +37,6 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
       <div className="wrap lay"><div>
         <div className="blk" id="overview" style={{ paddingTop: 44 }}><span className="eyebrow">Overview</span><h2>The road to the <em>roof</em> of the east</h2>
           <p className="lead">{t.overview}</p>
-          <div className="rt2 glass reveal"><Route nodes={t.nodes} /></div>
           <div className="places"><span className="eyebrow">Places to cover</span><div className="hl">{t.highlights.map(h => <span key={h}>{h}</span>)}</div></div></div>
         <div className="blk" id="policy"><span className="eyebrow">Good to know</span><h2>Before you <em>travel</em></h2>
           <div className="faq" style={{ maxWidth: 'none' }}>{t.policies.map((f, i) => (

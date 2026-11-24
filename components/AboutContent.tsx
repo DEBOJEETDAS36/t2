@@ -78,7 +78,7 @@ export default function AboutContent() {
           <div className="abt-people">
             <div className="abt-team-photo reveal">
               <div className="abt-media abt-team-media">
-                <Ph name={A.managementPhoto} label="Anamitra & Tannistha · 1448×1086" />
+                <Ph name={A.managementPhoto} label="Anammitra & Tannistha · 1448×1086" />
               </div>
             </div>
             {A.management.map((m, i) => (
@@ -106,9 +106,9 @@ export default function AboutContent() {
         <div className="wrap">
           <div className="head reveal"><div><span className="eyebrow">Glimpses of our events</span><h2>Stages we’ve <em>set</em></h2></div></div>
           <div className="abt-events">
-            {A.events.map((e, i) => (
+            {A.events.map(([e, img], i) => (
               <figure key={e} className="abt-event reveal" style={d(`${(i % 4) * 0.08}s`)}>
-                <div className="abt-media"><Ph name={`about/${e}`} label={`${e} · 800×500`} /><span className="abt-event-idx">0{i + 1}</span></div>
+                <div className="abt-media"><Ph name={`about/${img}`} label={`${e} · 800×500`} /><span className="abt-event-idx">0{i + 1}</span></div>
                 <figcaption>{e}</figcaption>
               </figure>
             ))}

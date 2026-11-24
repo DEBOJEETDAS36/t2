@@ -67,10 +67,9 @@ export default function LeisureContent() {
                 <span className="rg">{t[1] === 'dom' ? 'Domestic' : 'International'}</span>
               </div>
               <div className="pt">
-                <div className="mt"><b>{t[2]}</b><span>{t[4]} days / {t[4] - 1} nights</span></div>
+                <div className="mt"><b>{t[2]}</b></div>
                 <h3>{t[0]}</h3><p>{t[10]}</p>
                 <div className="tf"><span className="rt">★ {t[7]}</span></div>
-                <span className="rd">View itinerary →</span>
               </div>
             </Link>
           ) }) : (

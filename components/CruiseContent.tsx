@@ -72,7 +72,7 @@ export default function CruiseContent() {
           return (
             <div key={l[0]} className="post glass reveal" style={d(`${(i % 3) * 0.08}s`)}>
               <div className="img" style={{ '--a': l[2], '--b': l[3] } as React.CSSProperties}>
-                <Slot name={`cruise/${slug(l[0])}`} label="Cruise photo · 800×500" alt={l[0]} />
+                <Slot name={`cruise/${l[0]}`} label="Cruise photo · 800×500" alt={l[0]} />
                 <span className="rg">{l[1]}</span>
                 {logo && <span className="cr-lg"><img src={logo} alt={`${l[0]} logo`} loading="lazy" /></span>}
               </div>

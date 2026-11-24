@@ -28,8 +28,7 @@ const excluded = [
 
 const perks = ['Handcrafted by our travel designers', 'Daily breakfast included', '24/7 on-trip support']
 
-const facts = (duration: string, best: string, region = 'International') => [
-  ['Duration', duration],
+const facts = (_duration: string, best: string, region = 'International') => [
   ['Departures', 'Flexible dates'],
   ['Best for', best],
   ['Region', region],
@@ -175,7 +174,7 @@ export const LEISURE_TOURS: TourData[] = [
     heroLabels: ['Hero image · Singapore · 1400×900', 'Marina Bay · 800×500', 'Gardens by the Bay · 800×500'],
     facts: facts('3N / 4D', 'Family · Culture'),
     overview: 'Three nights in a 3-star Singapore hotel with daily breakfast, SIC/shared airport transfers and sightseeing transfers as specified. The days mix the skyline at Marina Bay and Merlion Park with Gardens by the Bay, Sentosa and the Wings of Time, plus a city tour through Chinatown and Little India.',
-    highlights: ['Merlion Park & Marina Bay waterfront', 'Gardens by the Bay outdoor areas', 'Sentosa Island', 'Wings of Time show', 'City tour, Chinatown & Little India', 'Optional Universal Studios Singapore'],
+    highlights: ['Merlion Park & Marina Bay waterfront', 'Gardens by the Bay', 'Sentosa Island', 'Wings of Time show', 'City tour, Chinatown & Little India', 'Optional Universal Studios Singapore'],
     nodes: [['Singapore', '3 nights']],
     days: [
       [1, 'Arrive Singapore', '', 'Arrive at Changi and take a shared transfer to your hotel; the evening is free at Marina Bay.', ['Shared airport transfer', 'Hotel check-in', 'Marina Bay waterfront']],
@@ -712,14 +711,14 @@ export const LEISURE_TOURS: TourData[] = [
     region: 'dom',
     place: 'Rajasthan',
     cats: ['Culture', 'Luxury', 'Family'],
-    desc: 'Amber Fort, Hawa Mahal, royal bazaars and cuisine — from ₹18,999 per person.',
+    desc: 'Amber Fort, Hawa Mahal, royal bazaars and cuisine.',
     rating: 4.8,
     label: 'Bestseller',
     a: '#e0a800',
     b: '#0e6a73',
     fixed: false,
     tags: [['Bestseller', ''], ['Customisable', 'teal']],
-    subtitle: 'Amber Fort, Hawa Mahal, royal bazaars and cuisine — from ₹18,999 per person.',
+    subtitle: 'Amber Fort, Hawa Mahal, royal bazaars and cuisine.',
     route: ['Jaipur', 'Ajmer', 'Pushkar'],
     heroLabels: ['Hero image · Jaipur · 1400×900', 'Amber Fort · 800×500', 'Hawa Mahal · 800×500'],
     facts: facts('4N / 5D', 'Culture · Luxury · Family', 'Domestic'),
@@ -764,7 +763,7 @@ export const LEISURE_TOURS: TourData[] = [
     heroLabels: ['Hero image · Goa · 1400×900', 'Fort Aguada · 800×500', 'Baga Beach · 800×500'],
     facts: facts('3N / 4D', 'Beach · Family · Honeymoon', 'Domestic'),
     overview: 'Three nights in a 3-star category hotel with daily breakfast, airport/railway station transfers and sightseeing transfers as specified. Days cover north Goa around Fort Aguada and the Candolim/Baga beach area, Old Goa churches and Panaji, with south Goa beaches if included and an optional cruise or water sports.',
-    highlights: ['Fort Aguada', 'Candolim/Baga beaches', 'Calangute & Anjuna', 'Old Goa churches', 'Panaji city tour', 'Optional cruise or water sports'],
+    highlights: ['Fort Aguada', 'Candolim/Baga beaches', 'Calangute & Anjuna Beaches', 'Old Goa churches', 'Panaji city tour', 'Optional cruise or water sports'],
     nodes: [['North Goa', '2 nights'], ['South Goa', '1 night']],
     days: [
       [1, 'Arrive Goa', '', 'Arrive and check in; the evening is free at the beach.', ['Hotel check-in', 'Beach time']],

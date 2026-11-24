@@ -55,7 +55,17 @@ export const ABOUT = {
     ['Kansai Nerolac Paints', 'Indonesia + Thailand'],
     ['Berger E1 Group', 'South Africa'],
   ] as [string, string][],
-  events: ['Magik', 'Steelbird', 'Century', 'Berger', 'Tarson', 'Ramco', 'Merino', 'Star Cement'],
+  // [display name, image file name in public/images/about]
+  events: [
+    ['Magik Lighting', 'MAGIK'],
+    ['Steelbird Helmets', 'Steelbird'],
+    ['Century Ply', 'Century'],
+    ['Berger Paints', 'BERGER'],
+    ['Tarsons Products', 'TARSON'],
+    ['Ramco Cement', 'RAMCO'],
+    ['Merino Laminates', 'MERINO'],
+    ['Star Cement', 'STAR CEMENT'],
+  ] as [string, string][],
   whyQuote: 'At Bents, we’re passionate about our work, with years of experience and a team of experts to handle leading clients. We offer unparalleled expertise, personalised service and a commitment to excellence. Our clients trust us to deliver high-quality products and services that exceed their expectations. Join us and experience the difference for yourself.',
   pillars: [['24×7 Support', 'Someone on call whenever your group is on the move.'], ['Experienced Team', 'Specialists across corporate travel, MICE and leisure.'], ['Global Partners', 'A trusted network of hotels, venues and suppliers worldwide.'], ['Transparent Pricing', 'Clear costs, with no surprises on the way.'], ['Seamless Execution', 'Every detail planned and delivered with care.'], ['End-to-End Reliability', 'Travel, events and services under one roof.']],
   leisure: ['Experienced travel consultants', 'Handpicked hotels & trusted partners', 'Transparent pricing', '24×7 assistance during travel', 'Dedicated focus on comfort, safety & unforgettable memories'],
