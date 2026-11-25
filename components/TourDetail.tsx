@@ -11,6 +11,7 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
   useSiteEffects()
   const { findAny } = useImages()
   const heroPic = findAny(t.place, ...(t.img || []))
+  const heroImages = (t.heroImages || []).map(name => (name ? findAny(name) : null))
   const enq = useEnquiry('tour',{ extra: { tour: t.name } })
   const sent = enq.sent
   const [pol, setPol] = useState<Set<number>>(new Set())
@@ -29,9 +30,12 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <h1 className="reveal" style={d('.1s')}>{t.first} <em>{t.accent}</em></h1>
         <p className="reveal" style={d('.2s')}>{t.subtitle}</p>
         <div className="rp reveal" style={d('.3s')}>{t.route.map((r, i) => <span key={r + i} style={{ display: 'contents' }}>{i > 0 && <b>→</b>}<span>{r}</span></span>)}</div>
-        <div className="hg reveal" style={d('.3s')}>{t.heroLabels.map((l, i) => (
-          <div key={l + i} className="pimg" data-l={l} role="button" tabIndex={0} onClick={() => setLb(i)} onKeyDown={e => e.key === 'Enter' && setLb(i)}>{i === 0 && heroPic && <img className="pic" src={heroPic} alt={t.place} loading="eager" decoding="async" />}</div>
-        ))}</div>
+        <div className="hg reveal" style={d('.3s')}>{t.heroLabels.map((l, i) => {
+          const src = heroImages[i] ?? (i === 0 ? heroPic : null)
+          return (
+            <div key={l + i} className="pimg" data-l={l} role="button" tabIndex={0} onClick={() => setLb(i)} onKeyDown={e => e.key === 'Enter' && setLb(i)}>{src && <img className="pic" src={src} alt={i === 0 ? t.place : ''} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />}</div>
+          )
+        })}</div>
         <div className="facts glass reveal">{t.facts.map(([l, v]) => <div key={l}><small>{l}</small><b>{v}</b></div>)}</div>
       </div></header>
       <div className="wrap lay"><div>
@@ -51,7 +55,7 @@ export default function TourDetail({ tour: t }: { tour: TourData }) {
         <input name="phone" className="in" placeholder="Phone number" /><input name="travellers" className="in" placeholder="Number of travellers" />
         <textarea name="message" className="in full" placeholder="Anything we should know — dates, room preferences, special requests" maxLength={1000} />
         <button className="btn pri full" style={{ justifySelf: 'start' }}>{sent ? 'Thank you — we’ll be in touch ✓' : 'Send enquiry'}</button>{enq.err && <p className="ferr full">{enq.err}</p>}</form></div></section>
-      <Lightbox items={t.heroLabels.map((l, i) => ({ label: l, title: t.name, sub: `Photo ${i + 1} of ${t.heroLabels.length}`, a: t.a, b: t.b, src: i === 0 ? heroPic ?? undefined : undefined }))} index={lb} onIndex={setLb} onClose={() => setLb(null)} />
+      <Lightbox items={t.heroLabels.map((l, i) => ({ label: l, title: t.name, sub: `Photo ${i + 1} of ${t.heroLabels.length}`, a: t.a, b: t.b, src: (heroImages[i] ?? (i === 0 ? heroPic : null)) ?? undefined }))} index={lb} onIndex={setLb} onClose={() => setLb(null)} />
       <div className="mb"><a href="#enquire" className="btn pri" style={{ padding: '12px 22px', flex: 1, justifyContent: 'center' }}>Enquire</a></div>
     </div>
   )

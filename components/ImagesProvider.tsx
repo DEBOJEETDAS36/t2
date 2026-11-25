@@ -4,15 +4,16 @@ export interface Img { src: string; name: string; orig: boolean; cat?: string }
 interface Ctx { find: (base: string) => string | null; findAny: (...names: string[]) => string | null; list: (dir: string) => Img[]; listAll: (dir: string) => Img[] }
 const C = createContext<Ctx>({ find: () => null, findAny: () => null, list: () => [], listAll: () => [] })
 const strip = (f: string) => f.replace(/\.[^.]+$/, '')
+const norm = (f: string) => strip(f).trim().toLowerCase()
 const pretty = (f: string) => strip(f.split('/').pop() || '').replace(/-color$/i, '').replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 export function ImagesProvider({ files, children }: { files: string[]; children: React.ReactNode }) {
   const v = useMemo<Ctx>(() => ({
-    find: base => { const f = files.find(x => strip(x).toLowerCase() === base.toLowerCase()); return f ? '/images/' + encodeURI(f) : null },
+    find: base => { const f = files.find(x => norm(x) === norm(base)); return f ? '/images/' + encodeURI(f) : null },
     // Match by file name only, wherever the image sits under public/images.
     findAny: (...names) => {
-      const keys = names.filter(Boolean).map(n => n.toLowerCase())
+      const keys = names.filter(Boolean).map(n => n.trim().toLowerCase())
       if (!keys.length) return null
-      const f = files.find(x => keys.includes(strip(x.split('/').pop() || '').toLowerCase()))
+      const f = files.find(x => keys.includes(norm(x.split('/').pop() || '')))
       return f ? '/images/' + encodeURI(f) : null
     },
     list: dir => files.filter(f => f.startsWith(dir + '/') && !f.slice(dir.length + 1).includes('/')).map(f => ({ src: '/images/' + encodeURI(f), name: pretty(f), orig: /-color\.[^.]+$/i.test(f) })),

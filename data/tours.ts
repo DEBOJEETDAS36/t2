@@ -10,6 +10,10 @@ export interface TourData {
   homeOnly?: boolean
   // Extra file names (without extension) to look for in public/images for this tour's photo.
   img?: string[]
+  // Optional exact photo path (without extension) to use for this tour's /leisure card.
+  cardImage?: string
+  // Optional hero gallery photos by slot index (file names without extension, anywhere under public/images).
+  heroImages?: (string | null)[]
 }
 
 // One entry per tour. Add a tour here and it appears on /leisure and gets its own page at /leisure/<slug>.

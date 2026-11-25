@@ -7,16 +7,14 @@ import { useImages } from './ImagesProvider'
 import { LEISURE_TOURS } from '@/data/leisure-tours'
 const PUBLIC_TOURS = LEISURE_TOURS
 const SLUG: Record<string, string> = Object.fromEntries(PUBLIC_TOURS.map(x => [x.name, x.slug]))
-type Tour = [string, string, string, string[], number, string, number, number, string, string, string, string[]]
-const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc, x.img || []] as Tour)
-const CATS: string[] = ['All','Beach','Adventure','Culture','Honeymoon','Family','Wildlife','Luxury','Hills']
+type Tour = [string, string, string, string[], number, string, number, number, string, string, string, string[], string]
+const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc, x.img || [], x.cardImage || ''] as Tour)
 const LC: Record<string, string> = {'Bestseller':'','New':'teal','Few seats left':'red','Honeymoon pick':'pink','Group departure':'blue','Family favourite':'green'}
 const SEG = [['all', 'All tours'], ['dom', 'Domestic'], ['intl', 'International']]
 export default function LeisureContent() {
   useSiteEffects()
-  const { findAny } = useImages()
+  const { find, findAny } = useImages()
   const [r, setR] = useState('all')
-  const [c, setC] = useState('All')
   const [q, setQ] = useState('')
   const [s, setS] = useState('pop')
   const prev = useRef<Set<string>>(new Set())
@@ -26,19 +24,19 @@ export default function LeisureContent() {
     f(); addEventListener('hashchange', f)
     return () => { delete document.body.dataset.cl; removeEventListener('hashchange', f) }
   }, [])
-  const ok = (t: Tour, skip?: string) => (skip === 'r' || r === 'all' || t[1] === r) && (skip === 'c' || c === 'All' || t[3].includes(c)) && (!q || (t[0] + ' ' + t[2] + ' ' + t[3].join(' ') + ' ' + t[5] + ' ' + t[10]).toLowerCase().includes(q.toLowerCase()))
+  const ok = (t: Tour, skip?: string) => (skip === 'r' || r === 'all' || t[1] === r) && (!q || (t[0] + ' ' + t[2] + ' ' + t[3].join(' ') + ' ' + t[5] + ' ' + t[10]).toLowerCase().includes(q.toLowerCase()))
   const S: Record<string, (a: Tour, b: Tour) => number> = { ds: (a, b) => a[4] - b[4], dl: (a, b) => b[4] - a[4] }
   let L = T.filter(t => ok(t))
   if (S[s]) L = [...L].sort(S[s])
   const seen = prev.current
   useEffect(() => { prev.current = new Set(L.map(t => t[0])) })
-  const reset = () => { setR('all'); setC('All'); setQ('') }
+  const reset = () => { setR('all'); setQ('') }
   return (
     <div className="pg">
       <header className="ph"><div className="orb o1" /><div className="orb o2" /><div className="wrap">
         <span className="crumb glass reveal">Home <b>/</b> Leisure</span>
         <h1 className="reveal" style={{ '--d': '.1s' } as React.CSSProperties}>Holidays designed around <em>you</em>.</h1>
-        <p className="reveal" style={{ '--d': '.2s' } as React.CSSProperties}>Browse hand-crafted domestic and international tours — search, filter by theme and find your next escape.</p>
+        <p className="reveal" style={{ '--d': '.2s' } as React.CSSProperties}>Browse hand-crafted domestic and international tours — search and find your next escape.</p>
       </div></header>
       <section style={{ paddingTop: 20 }}><div className="wrap">
         <div className="fp glass reveal">
@@ -54,12 +52,11 @@ export default function LeisureContent() {
           </div>
           <div className="r2">
             <div className="seg">{SEG.map(([k, n]) => <button key={k} className={r === k ? 'on' : ''} onClick={() => setR(k)}>{n}<small>{T.filter(t => ok(t, 'r') && (k === 'all' || t[1] === k)).length}</small></button>)}</div>
-            <div className="cats">{CATS.map(k => { const n = T.filter(t => ok(t, 'c') && (k === 'All' || t[3].includes(k))).length; return <button key={k} className={(c === k ? 'on' : '') + (n ? '' : ' off')} onClick={() => setC(k)}>{k}<small>{n}</small></button> })}</div>
           </div>
         </div>
         <div className="cnt">Showing <b>{L.length}</b> of {T.length} tours{q ? ` for “${q}”` : ''}</div>
         <div className="g3 tgrid">
-          {L.length ? L.map((t, i) => { const pic = findAny(t[2], ...t[11]); return (
+          {L.length ? L.map((t, i) => { const pic = (t[12] && find(t[12])) || findAny(t[2], ...t[11]); return (
             <Link key={t[0]} href={SLUG[t[0]] ? `/leisure/${SLUG[t[0]]}` : '/contact'} className={'post glass' + (seen.has(t[0]) ? '' : ' new')} style={{ animationDelay: `${i * 0.05}s` }}>
               <div className="img" style={{ '--a': t[8], '--b': t[9] } as React.CSSProperties}>
                 {pic ? <img className="pic" src={pic} alt={t[2]} loading="lazy" decoding="async" /> : <div className="pimg" data-l="Tour image · 800×500" />}
