@@ -2,7 +2,7 @@
 import type React from 'react'
 import { TOURS } from '@/data/tours'
 import Pic from './Pic'
-const F = [['bali-nusa-penida', 'asia', 'Vietnam'], ['dubai-abu-dhabi', 'mid', 'UAE'], ['blissful-japan', 'asia', 'Japan'], ['vietnam-unfolded', 'asia', 'Thailand'], ['jewel-of-the-nile', 'asia', 'Sri Lanka'], ['scenic-new-zealand', 'oce', 'N. Zealand', 'new-zealand'],
+const F = [['bali-nusa-penida', 'asia', 'Vietnam'], ['dubai-abu-dhabi', 'mid', 'UAE'], ['blissful-japan', 'asia', 'Japan'], ['vietnam-unfolded', 'asia', 'Thailand'], ['jewel-of-the-nile', 'asia', 'Sri Lanka'], ['scenic-new-zealand', 'oce', 'New Zealand', 'new-zealand'],
   ['korea', 'asia', 'South Korea'], ['georgia', 'asia', 'Georgia'], ['armenia', 'asia', 'Armenia'], ['bali', 'asia', 'Indonesia'], ['philippines', 'asia', 'Philippines'], ['egypt', 'mid', 'Egypt'], ['australia', 'oce', 'Australia'], ['singapore', 'asia', 'Singapore'], ['malaysia', 'asia', 'Malaysia'], ['russia', 'asia', 'Russia']]
 export default function Packages() {
   return (
