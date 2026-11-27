@@ -9,7 +9,7 @@ const PUBLIC_TOURS = LEISURE_TOURS
 const SLUG: Record<string, string> = Object.fromEntries(PUBLIC_TOURS.map(x => [x.name, x.slug]))
 type Tour = [string, string, string, string[], number, string, number, number, string, string, string, string[], string]
 const T: Tour[] = PUBLIC_TOURS.map(x => [x.name, x.region, x.place, x.cats, x.days.length, x.label, x.price, x.rating, x.a, x.b, x.desc, x.img || [], x.cardImage || ''] as Tour)
-const LC: Record<string, string> = {'Bestseller':'','New':'teal','Few seats left':'red','Honeymoon pick':'pink','Group departure':'blue','Family favourite':'green'}
+const LC: Record<string, string> = {'Bestseller':'','New':'teal','Few seats left':'red','Honeymoon pick':'pink','Group departure':'blue','Safari':'','Family favourite':'green'}
 const SEG = [['all', 'All tours'], ['dom', 'Domestic'], ['intl', 'International']]
 export default function LeisureContent() {
   useSiteEffects()
